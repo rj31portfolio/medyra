@@ -1,0 +1,1 @@
+preloader make increase size with loading circle update 

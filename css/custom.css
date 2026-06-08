@@ -312,9 +312,9 @@ a:focus{
 
 .loading-container,
 .loading{
-	height: 100px;
+	height: 180px;
 	position: relative;
-	width: 100px;
+	width: 180px;
 	border-radius: 100%;
 }
 
@@ -323,10 +323,12 @@ a:focus{
 }
 
 .loading{
-	border: 1px solid transparent;
-	border-color: transparent var(--white-color) transparent var(--white-color);
-	animation: rotate-loading 1.5s linear 0s infinite normal;
+	border: 8px solid rgba(255, 255, 255, 0.18);
+	border-top-color: var(--white-color);
+	border-right-color: var(--accent-color);
+	animation: rotate-loading 1.1s linear 0s infinite normal;
 	transform-origin: 50% 50%;
+	box-shadow: 0 0 36px rgba(255, 255, 255, 0.14);
 }
 
 .loading-container:hover .loading,
@@ -338,8 +340,14 @@ a:focus{
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	max-width: 66px;
+	width: 108px;
 	transform: translate(-50%, -50%);
+}
+
+#loading-icon img{
+	display: block;
+	width: 100%;
+	height: auto;
 }
 
 @keyframes rotate-loading{
@@ -538,15 +546,22 @@ header.main-header .header-sticky.active{
 }
 
 .navbar{
-	padding: 30px 30px;
+	padding: 0px 0px;
 	align-items: center;
 }
 
 .navbar-brand{
 	padding: 0;
 	margin: 0;
-	width: 150px;
-	height: 50px;
+	width: 210px;
+	height: 150px;
+}
+
+.navbar-brand img{
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
 }
 
 .main-menu .nav-menu-wrapper{
@@ -908,7 +923,7 @@ header.main-header .header-sticky.active{
 /************************************/
 
 .about-us{
-	padding: 120px 0;
+	padding: 12px 0;
 }
 
 .about-us-image-box{
@@ -1112,7 +1127,7 @@ header.main-header .header-sticky.active{
 /************************************/
 
 .our-services{
-	padding: 120px 0;
+	padding: 20px 0;
 }
 
 .service-item{
@@ -1376,7 +1391,7 @@ header.main-header .header-sticky.active{
 	background: url('../images/section-bg-image-1.png') no-repeat;
 	background-position:  center left -150px;
 	background-size: auto;
-	padding: 120px 0;
+	padding: 20px 0;
 }
 
 .skills-progress-bar{
@@ -1939,7 +1954,7 @@ header.main-header .header-sticky.active{
 /************************************/
 
 .our-features{
-	padding: 120px 0 0;
+	padding: 20px 0 0;
 	margin-bottom: 210px;
 }
 
@@ -2328,7 +2343,7 @@ header.main-header .header-sticky.active{
 /************************************/
 
 .our-faqs{
-	padding: 120px 0;
+	padding: 20px 0;
 }
 
 .faq-image-box{
@@ -2552,7 +2567,7 @@ header.main-header .header-sticky.active{
 	background-repeat: no-repeat;
     background-position: top 120px left -150px;
     background-size: auto;
-	padding: 120px 0 90px;
+	padding: 20px 0 90px;
 }
 
 .post-item{
@@ -2607,7 +2622,7 @@ header.main-header .header-sticky.active{
 /************************************/
 
 .main-footer{
-	padding: 120px 0 0;
+	padding: 20px 0 0;
 	margin-bottom: 15px;
 }
 
@@ -2775,8 +2790,8 @@ header.main-header .header-sticky.active{
 .footer-copyright-text{
 	border-top: 1px solid var(--dark-divider-color);
 	text-align: center;
-	padding: 60px 0;
-	margin-top: 60px;
+	padding: 20px 0;
+	margin-top: 15px;
 }
 
 .footer-copyright-text p{
