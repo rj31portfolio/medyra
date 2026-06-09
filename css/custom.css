@@ -374,7 +374,6 @@ a:focus{
 		transform: rotate(360deg);
 	}
 }
-
 .bg-section{
 	width: 100%;
 	max-width: 1820px;
@@ -382,11 +381,9 @@ a:focus{
 	border-radius: 10px;
 	margin: 0 auto;
 }
-
 .bg-section .container-fluid{
 	padding: 0;
 }
-
 .dark-section{
 	background-color: var(--primary-color);
 	background-image: url('../images/dark-section-bg-image.png');
@@ -394,22 +391,18 @@ a:focus{
 	background-position: top center;
 	background-size: cover;
 }
-
 .section-row{
 	margin-bottom: 80px;
 }
-
 .section-row .section-title{
 	margin-bottom: 0; 
 }
-
 .section-row .section-title.section-title-center{
 	width: 100%;
 	max-width: 700px;
 	margin: 0 auto;
 	text-align: center;
 }
-
 .section-btn{
 	text-align: right;
 }
@@ -418,19 +411,15 @@ a:focus{
 	margin-top: 30px;
 	text-align: left;
 }
-
 .section-title-content p{
 	margin-bottom: 20px;
 }
-
 .section-title-content p:last-child{
 	margin-bottom: 0;	
 }
-
 .section-title{
 	margin-bottom: 40px;
 }
-
 .section-title .section-sub-title{
 	position: relative;
 	display: inline-block;
@@ -444,11 +433,9 @@ a:focus{
 	padding: 8px 14px 8px 30px;
     margin-bottom: 15px;
 }
-
 .bg-section .section-title .section-sub-title{
 	background-color: var(--bg-color);
 }
-
 .section-title .section-sub-title::before{
 	content: '';
     position: absolute;
@@ -460,7 +447,6 @@ a:focus{
     width: 6px;
     height: 6px;
 }
-
 .section-title h1{
 	font-size: 64px;
 	font-weight: 500;
@@ -468,7 +454,6 @@ a:focus{
 	margin-bottom: 0;
 	cursor: none;
 }
-
 .section-title h2{
 	font-size: 48px;
 	font-weight: 500;
@@ -476,11 +461,9 @@ a:focus{
 	margin-bottom: 0;
 	cursor: none;
 }
-
 .section-title h1 span{
     font-family: var(--accent-font);
 }
-
 .section-title h2 span{
 	font-weight: 400;
     font-family: var(--accent-font);
@@ -490,22 +473,18 @@ a:focus{
     -webkit-text-fill-color: transparent;
 	transition: all 0.3s ease-in-out;
 }
-
 .section-title:hover h2 span{
 	background-position: right center;
 }
-
 .section-title p{
 	margin-top: 15px;
 	margin-bottom: 0;
 }
-
 .dark-section .section-title .section-sub-title{
 	background-color: var(--dark-divider-color);
 	backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
 }
-
 .dark-section .section-title .section-sub-title,
 .dark-section .section-title h1,
 .dark-section .section-title h2,
@@ -513,18 +492,15 @@ a:focus{
 .dark-section .section-title-content p{
 	color: var(--white-color);
 }
-
 .help-block.with-errors ul{
 	margin: 0;
 	text-align: left;
 }
-
 .help-block.with-errors ul li{
 	color: var(--error-color);
 	font-weight: 500;
 	font-size: 14px;
 }
-
 /************************************/
 /**** 	    03. Header css		 ****/
 /************************************/
@@ -536,7 +512,6 @@ header.main-header{
     right: 15px;
 	z-index: 100;
 }
-
 header.main-header .header-sticky{
     position: relative;
 	top: 0px;
@@ -544,7 +519,6 @@ header.main-header .header-sticky{
 	z-index: 100;
 	background-color: #FFFFFF;
 }
-
 header.main-header .header-sticky.hide{
 	transform: translateY(-100%);
 	transition: transform 0.3s ease-in-out;
