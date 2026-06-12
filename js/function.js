@@ -281,85 +281,76 @@
 		}
 	});
 
-	/* Contact form validation */
-	var $contactform = $("#contactForm");
-	$contactform.validator({focus: false}).on("submit", function (event) {
-		if (!event.isDefaultPrevented()) {
-			event.preventDefault();
-			submitForm();
+	function showAlert(icon, title, text) {
+		if (typeof Swal !== "undefined") {
+			Swal.fire({
+				icon: icon,
+				title: title,
+				text: text,
+				confirmButtonColor: "#0e4b69"
+			});
 		}
-	});
+	}
 
-	function submitForm(){
-		/* Ajax call to submit form */
-		$.ajax({
-			type: "POST",
-			url: "form-process.php",
-			data: $contactform.serialize(),
-			success : function(text){
-				if (text === "success"){
-					formSuccess();
-				} else {
-					submitMSG(false,text);
-				}
+	function updateFormMessage($form, valid, msg){
+		var msgClasses = valid ? "h4 text-success" : "h4 text-danger";
+		$form.find("#msgSubmit").removeClass().addClass(msgClasses).text(msg);
+	}
+
+	function toggleSubmitState($form, isLoading) {
+		var $button = $form.find('button[type="submit"]');
+		$button.prop("disabled", isLoading).toggleClass("disabled", isLoading);
+	}
+
+	function handleAjaxForm($form, options) {
+		if (!$form.length) {
+			return;
+		}
+
+		$form.validator({focus: false}).on("submit", function (event) {
+			if (!event.isDefaultPrevented()) {
+				event.preventDefault();
+				toggleSubmitState($form, true);
+
+				$.ajax({
+					type: "POST",
+					url: options.url,
+					data: $form.serialize(),
+					dataType: "json"
+				}).done(function(response){
+					if (response.status === "success") {
+						$form[0].reset();
+						updateFormMessage($form, true, response.message);
+						showAlert("success", options.successTitle, response.message);
+					} else {
+						updateFormMessage($form, false, response.message || options.errorMessage);
+						showAlert("error", "Submission Failed", response.message || options.errorMessage);
+					}
+				}).fail(function(xhr){
+					var response = xhr.responseJSON || {};
+					var message = response.message || options.errorMessage;
+					updateFormMessage($form, false, message);
+					showAlert("error", "Submission Failed", message);
+				}).always(function(){
+					toggleSubmitState($form, false);
+				});
 			}
 		});
 	}
 
-	function formSuccess(){
-		$contactform[0].reset();
-		submitMSG(true, "Message Sent Successfully!")
-	}
-
-	function submitMSG(valid, msg){
-		if(valid){
-			var msgClasses = "h4 text-success";
-		} else {
-			var msgClasses = "h4 text-danger";
-		}
-		$("#msgSubmit").removeClass().addClass(msgClasses).text(msg);
-	}
-	/* Contact form validation end */
-
-	/* Appointment form validation */
-	var $appointmentForm = $("#appointmentForm");
-	$appointmentForm.validator({focus: false}).on("submit", function (event) {
-		if (!event.isDefaultPrevented()) {
-			event.preventDefault();
-			submitappointmentForm();
-		}
+	/* Contact and appointment form validation */
+	handleAjaxForm($("#contactForm"), {
+		url: "form-process.php",
+		successTitle: "Message Sent",
+		errorMessage: "Unable to send your message right now."
 	});
 
-	function submitappointmentForm(){
-		/* Ajax call to submit form */
-		$.ajax({
-			type: "POST",
-			url: "form-appointment.php",
-			data: $appointmentForm.serialize(),
-			success : function(text){
-				if (text === "success"){
-					appointmentformSuccess();
-				} else {
-					appointmentsubmitMSG(false,text);
-				}
-			}
-		});
-	}
-
-	function appointmentformSuccess(){
-		$appointmentForm[0].reset();
-		appointmentsubmitMSG(true, "Message Sent Successfully!")
-	}
-
-	function appointmentsubmitMSG(valid, msg){
-		if(valid){
-			var msgClasses = "h3 text-success";
-		} else {
-			var msgClasses = "h3 text-danger";
-		}
-		$("#msgSubmit").removeClass().addClass(msgClasses).text(msg);
-	}
-	/* Appointment form validation end */
+	handleAjaxForm($("#appointmentForm"), {
+		url: "form-appointment.php",
+		successTitle: "Appointment Requested",
+		errorMessage: "Unable to submit your appointment request right now."
+	});
+	/* Contact and appointment form validation end */
 
 	/* Animated Wow Js */	
 	new WOW().init();
