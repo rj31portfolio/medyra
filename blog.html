@@ -1,0 +1,687 @@
+﻿<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description"
+        content="Medyra Pharmaceutical company profile covering oncology expertise, manufacturing strength, global reach, and quality-driven healthcare solutions.">
+    <meta name="keywords" content="Medyra, company profile, oncology, pharmaceutical, manufacturing, export">
+    <meta name="author" content="Medyra Pharmaceutical">
+    <!-- Page Title -->
+    <title>Medyra Pharma - Company Profile</title>
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="images/logo-md-logo.png">
+    <!-- Google Fonts Css-->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;display=swap"
+        rel="stylesheet">
+    <!-- Bootstrap Css -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <!-- SlickNav Css -->
+    <link href="css/slicknav.min.css" rel="stylesheet">
+    <!-- Swiper Css -->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <!-- Font Awesome Icon Css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <!-- Animated Css -->
+    <link href="css/animate.css" rel="stylesheet">
+    <!-- Magnific Popup Core Css File -->
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <!-- Mouse Cursor Css File -->
+    <link rel="stylesheet" href="css/mousecursor.css">
+    <!-- Main Custom Css -->
+    <link href="css/custom.css" rel="stylesheet" media="screen">
+    <style>
+        :root {
+            --profile-deep: #071a24;
+            --profile-mid: #0b3247;
+            --profile-accent: #16d5b8;
+            --profile-warm: #f4d08b;
+            --profile-panel: rgba(255, 255, 255, 0.08);
+            --profile-border: rgba(255, 255, 255, 0.12);
+        }
+
+        .company-hero {
+            position: relative;
+            overflow: hidden;
+            padding: 120px 0 80px;
+            background:
+                radial-gradient(circle at top left, rgba(22, 213, 184, 0.18), transparent 28%),
+                radial-gradient(circle at bottom right, rgba(244, 208, 139, 0.16), transparent 24%),
+                linear-gradient(135deg, var(--profile-deep) 0%, var(--profile-mid) 56%, #126284 100%);
+        }
+
+        .company-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 36px 36px;
+            opacity: 0.35;
+            pointer-events: none;
+        }
+
+        .company-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .company-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 18px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.06);
+            color: #fff;
+            font-size: 14px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .company-hero-copy h1,
+        .company-hero-copy p,
+        .company-hero-copy li {
+            color: #fff;
+        }
+
+        .company-hero-copy h1 {
+            margin: 24px 0 18px;
+            max-width: 700px;
+        }
+
+        .company-hero-copy p {
+            max-width: 670px;
+            color: rgba(255, 255, 255, 0.82);
+        }
+
+        .company-feature-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            margin: 30px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .company-feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .company-stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .company-stat-card,
+        .profile-card,
+        .timeline-card {
+            background: #fff;
+            border-radius: 24px;
+            box-shadow: 0 18px 40px rgba(8, 31, 43, 0.08);
+        }
+
+        .company-stat-card {
+            padding: 28px;
+        }
+
+        .company-stat-card h2 {
+            margin-bottom: 6px;
+            color: var(--profile-mid);
+        }
+
+        .company-stat-card p {
+            margin: 0;
+        }
+
+        .profile-story {
+            padding: 120px 0;
+            background: linear-gradient(180deg, #f7fbfd 0%, #ffffff 100%);
+        }
+
+        .profile-card {
+            padding: 34px;
+            height: 100%;
+        }
+
+        .profile-card .icon-box {
+            width: 70px;
+            height: 70px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 22px;
+            background: linear-gradient(145deg, rgba(22, 213, 184, 0.12), rgba(17, 109, 173, 0.14));
+        }
+
+        .company-capability-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .company-capability-grid .profile-card {
+            min-height: 100%;
+        }
+
+        .company-journey {
+            padding: 120px 0;
+            background:
+                radial-gradient(circle at right top, rgba(22, 213, 184, 0.1), transparent 30%),
+                #fff;
+        }
+
+        .timeline-card {
+            padding: 28px;
+            border: 1px solid rgba(7, 26, 36, 0.07);
+            height: 100%;
+        }
+
+        .timeline-card span {
+            display: inline-block;
+            margin-bottom: 14px;
+            color: var(--profile-accent);
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-size: 13px;
+        }
+
+        .global-panel {
+            padding: 120px 0;
+            background:
+                linear-gradient(135deg, rgba(7, 26, 36, 0.96), rgba(11, 50, 71, 0.94)),
+                url("images/testimonial-bg-image-prime.png") center/cover no-repeat;
+        }
+
+        .global-panel .section-title h2,
+        .global-panel .section-title p,
+        .global-panel .section-sub-title,
+        .global-panel .profile-card h3,
+        .global-panel .profile-card p,
+        .global-panel .profile-card li {
+            color: #fff;
+        }
+
+        .global-panel .profile-card {
+            background: var(--profile-panel);
+            border: 1px solid var(--profile-border);
+            backdrop-filter: blur(12px);
+        }
+
+        .global-panel ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+
+        .company-cta-band {
+            padding: 100px 0 120px;
+            background: linear-gradient(180deg, #fff 0%, #eef8fb 100%);
+        }
+
+        .company-cta-shell {
+            padding: 42px;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #ffffff 0%, #f5fbfd 100%);
+            border: 1px solid rgba(18, 98, 132, 0.1);
+            box-shadow: 0 24px 50px rgba(8, 31, 43, 0.08);
+        }
+
+        .company-cta-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 24px;
+        }
+
+        @media only screen and (max-width: 991px) {
+            .company-hero {
+                padding: 90px 0 70px;
+            }
+
+            .company-stat-grid,
+            .company-capability-grid,
+            .company-feature-list {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-story,
+            .company-journey,
+            .global-panel,
+            .company-cta-band {
+                padding: 80px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div class="preloader">
+        <div class="loading-container">
+            <div class="loading"></div>
+            <div id="loading-icon"><img src="images/md-logo.png" alt="Medyra Logo"></div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- Header Start -->
+    <header class="main-header">
+        <div class="header-sticky">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="images/logo-md.png" alt="Logo">
+                    </a>
+
+                    <div class="collapse navbar-collapse main-menu">
+                        <div class="nav-menu-wrapper">
+                            <ul class="navbar-nav mr-auto" id="menu">
+                                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                                <li class="nav-item"><a class="nav-link" href="blog.html">Company Profile</a></li>
+                                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                                <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                                <li class="nav-item highlighted-menu"><a class="nav-link"
+                                        href="book-appointment.html">Book Appointment</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="header-btn">
+                            <a href="book-appointment.html" class="btn-default">Book Appointment</a>
+                        </div>
+                    </div>
+                    <div class="navbar-toggle"></div>
+                </div>
+            </nav>
+            <div class="responsive-menu"></div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <section class="company-hero">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-7">
+                    <div class="company-hero-copy">
+                        <span class="company-badge wow fadeInUp">Company Profile</span>
+                        <h1 class="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Medyra Pharmaceutical is
+                            building wider access to <span>trusted oncology care</span></h1>
+                        <p class="wow fadeInUp" data-wow-delay="0.4s">For more than 15 years, Medyra has combined
+                            manufacturing discipline, therapeutic focus, and international distribution strength to make
+                            life-saving medicines more available and more affordable.</p>
+                        <ul class="company-feature-list wow fadeInUp" data-wow-delay="0.6s">
+                            <li><i class="fa-solid fa-shield-heart"></i> Oncology-driven manufacturing expertise</li>
+                            <li><i class="fa-solid fa-flask-vial"></i> Quality-first production and compliance</li>
+                            <li><i class="fa-solid fa-earth-asia"></i> Supply presence across 30+ countries</li>
+                            <li><i class="fa-solid fa-hand-holding-medical"></i> Patient access through affordability</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="company-stat-grid wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="company-stat-card">
+                            <h2>15+</h2>
+                            <p>Years of pharmaceutical and oncology market experience.</p>
+                        </div>
+                        <div class="company-stat-card">
+                            <h2>30+</h2>
+                            <p>Countries supported through export partnerships and supply networks.</p>
+                        </div>
+                        <div class="company-stat-card">
+                            <h2>100%</h2>
+                            <p>Commitment to dependable delivery and transparent service support.</p>
+                        </div>
+                        <div class="company-stat-card">
+                            <h2>24/7</h2>
+                            <p>Team availability for urgent partner coordination and response.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="profile-story">
+        <div class="container">
+            <div class="row section-row">
+                <div class="col-lg-12">
+                    <div class="section-title section-title-center">
+                        <span class="section-sub-title wow fadeInUp">Who We Are</span>
+                        <h2 class="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">A focused partner in
+                            <span>specialty pharmaceuticals</span></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="profile-card wow fadeInUp">
+                        <div class="icon-box">
+                            <img src="images/icon-service-1.svg" alt="">
+                        </div>
+                        <h3>Therapy Leadership</h3>
+                        <p>Medyra is centered on oncology and specialty medicine categories where consistency, access,
+                            and reliability directly affect patient outcomes.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="profile-card wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="icon-box">
+                            <img src="images/icon-service-2.svg" alt="">
+                        </div>
+                        <h3>Operational Discipline</h3>
+                        <p>Our manufacturing and sourcing approach is built around process control, quality monitoring,
+                            and responsible cost management.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="profile-card wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="icon-box">
+                            <img src="images/icon-service-3.svg" alt="">
+                        </div>
+                        <h3>Market Expansion</h3>
+                        <p>We support Indian healthcare channels and international partners with responsive service,
+                            documentation support, and timely supply execution.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-items-center g-4 mt-4">
+                <div class="col-lg-6">
+                    <div class="about-us-image-box wow fadeInUp">
+                        <div class="about-us-image-box-1">
+                            <div class="about-us-flash-image">
+                                <img src="images/about-flask-image.png" alt="">
+                            </div>
+                            <div class="about-us-video-box">
+                                <div class="emergency-support-title">
+                                    <h2>Fast-Growing Oncology Company</h2>
+                                </div>
+                                <div class="about-us-video">
+                                    <figure class="image-anime">
+                                        <img src="images/about.png" alt="Medyra Pharmaceutical">
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about-us-image-box-2">
+                            <div class="about-us-image">
+                                <figure class="image-anime reveal">
+                                    <img src="images/about-int.png" alt="Medyra healthcare solutions">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="company-capability-grid">
+                        <div class="profile-card wow fadeInUp">
+                            <h3>Mission</h3>
+                            <p>To widen access to quality oncology and specialty medicines through dependable
+                                manufacturing, ethical service, and affordable pricing.</p>
+                        </div>
+                        <div class="profile-card wow fadeInUp" data-wow-delay="0.2s">
+                            <h3>Vision</h3>
+                            <p>To be recognized as a trusted Indian pharmaceutical company with meaningful impact across
+                                domestic and international care ecosystems.</p>
+                        </div>
+                        <div class="profile-card wow fadeInUp" data-wow-delay="0.4s">
+                            <h3>Strength</h3>
+                            <p>Product focus, quality consistency, responsive communication, and export readiness under
+                                one service framework.</p>
+                        </div>
+                        <div class="profile-card wow fadeInUp" data-wow-delay="0.6s">
+                            <h3>Promise</h3>
+                            <p>Every partnership is handled with urgency, clarity, and a practical commitment to long-term
+                                trust.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="company-journey">
+        <div class="container">
+            <div class="row section-row">
+                <div class="col-lg-12">
+                    <div class="section-title section-title-center">
+                        <span class="section-sub-title wow fadeInUp">Our Journey</span>
+                        <h2 class="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">How Medyra keeps building
+                            <span>trust at scale</span></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-xl-3">
+                    <div class="timeline-card wow fadeInUp">
+                        <span>01</span>
+                        <h3>Focused Foundation</h3>
+                        <p>We established a clear concentration on pharmaceutical finished products with strong emphasis
+                            on oncology-related therapies.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-3">
+                    <div class="timeline-card wow fadeInUp" data-wow-delay="0.2s">
+                        <span>02</span>
+                        <h3>Quality Expansion</h3>
+                        <p>Manufacturing systems and internal quality discipline were shaped to support dependable,
+                            repeatable performance.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-3">
+                    <div class="timeline-card wow fadeInUp" data-wow-delay="0.4s">
+                        <span>03</span>
+                        <h3>International Reach</h3>
+                        <p>Distribution capabilities expanded across global markets with support for export coordination,
+                            documentation, and delivery reliability.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-3">
+                    <div class="timeline-card wow fadeInUp" data-wow-delay="0.6s">
+                        <span>04</span>
+                        <h3>Patient Access</h3>
+                        <p>Affordability remains central to our strategy so more healthcare providers and patients can
+                            access essential treatment options.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="global-panel">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-6">
+                    <div class="section-title">
+                        <span class="section-sub-title wow fadeInUp">Global Footprint</span>
+                        <h2 class="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Indian strength with
+                            <span>international delivery confidence</span></h2>
+                        <p class="wow fadeInUp" data-wow-delay="0.4s">Medyra supports hospitals, distributors, retail
+                            pharmacy chains, and import partners with quality supply, market responsiveness, and the
+                            service consistency required in healthcare operations.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="profile-card wow fadeInUp">
+                                <h3>Domestic Partnerships</h3>
+                                <ul>
+                                    <li>Hospital procurement support</li>
+                                    <li>Retail pharmacy chain fulfillment</li>
+                                    <li>Responsive coordination and follow-through</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="profile-card wow fadeInUp" data-wow-delay="0.2s">
+                                <h3>Export Readiness</h3>
+                                <ul>
+                                    <li>Documentation support for overseas markets</li>
+                                    <li>Supply planning for critical medicine demand</li>
+                                    <li>Dependable timelines and communication</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="company-cta-band">
+        <div class="container">
+            <div class="company-cta-shell wow fadeInUp">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <span class="section-sub-title">Connect With Medyra</span>
+                        <h2 data-cursor="-opaque">Looking for a dependable oncology and pharmaceutical partner?</h2>
+                        <p>Talk to our team about supply requirements, market collaboration, or product-related support.
+                            We respond with practical next steps, not vague follow-up.</p>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="company-cta-actions">
+                            <a href="contact.html" class="btn-default">Contact Us</a>
+                            <a href="book-appointment.html" class="btn-default btn-highlighted">Book Appointment</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Footer Start -->
+    <footer class="main-footer bg-section dark-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-4">
+                    <div class="about-footer">
+                        <div class="footer-logo">
+                            <img src="images/md-logo.png" alt="Medyra Logo">
+                        </div>
+                        <div class="about-footer-content">
+                            <p>At Medyra Pharmaceutical, we bring over 15 years of expertise in delivering cutting-edge
+                                healthcare solutions. Today, we stand proud as one of the fastest-growing oncology
+                                companies, dedicated to improving lives by offering world-class medications at highly
+                                affordable prices.</p>
+                        </div>
+                        <div class="footer-social-links">
+                            <ul>
+                                <li><a href="https://www.youtube.com/@MedyraPharmaceutical" target="_blank"
+                                        rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a></li>
+                                <li><a href="https://www.linkedin.com/company/medyrapharmaceutical/" target="_blank"
+                                        rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                                <li><a href="https://www.facebook.com/medyrapharma/" target="_blank"
+                                        rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                <li><a href="https://www.instagram.com/medyrapharmaceutical/" target="_blank"
+                                        rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-8">
+                    <div class="footer-links-box">
+                        <div class="footer-links">
+                            <h2>Quick Links</h2>
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="services.html">Our Services</a></li>
+                                <li><a href="blog.html">Our Blogs</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-links">
+                            <h2>Working Hours</h2>
+                            <ul>
+                                <li>Mon - Fri: 09AM - 06PM</li>
+                                <li>Saturday: 10AM - 02PM</li>
+                                <li>Sunday : Closed</li>
+                            </ul>
+                        </div>
+                        <div class="footer-links footer-branch-box">
+                            <h2>Our Branches</h2>
+                            <div class="footer-branch-image">
+                                <figure>
+                                    <img src="images/footer-branch-image.png" alt="">
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="footer-contact-info-list">
+                            <ul>
+                                <li><img src="images/icon-phone-accent.svg" alt=""><a href="tel:+91 9810246055">+91
+                                        9810246055</a></li>
+                                <li><img src="images/icon-mail-accent.svg" alt=""><a
+                                        href="mailto:pharmaceutical@medyra.in">Pharmaceutical@medyra.in</a></li>
+                                <li><img src="images/icon-location-accent.svg" alt="">O Block, 169, DSIIDC Industrial
+                                    Area, Sector 1, Bawana, Delhi, 110039 (India)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="footer-copyright-text">
+                        <p>Copyright Â© 2026 All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Main Footer End -->
+
+    <!-- Jquery Library File -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <!-- Circle Progress Js File -->
+    <script src="js/circle-progress.min.js"></script>
+    <!-- Bootstrap js file -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Validator js file -->
+    <script src="js/validator.min.js"></script>
+    <!-- SlickNav js file -->
+    <script src="js/jquery.slicknav.js"></script>
+    <!-- Swiper js file -->
+    <script src="js/swiper-bundle.min.js"></script>
+    <!-- Counter js file -->
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <!-- Magnific js file -->
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <!-- SmoothScroll -->
+    <script src="js/SmoothScroll.js"></script>
+    <!-- Parallax js -->
+    <script src="js/parallaxie.js"></script>
+    <!-- MagicCursor js file -->
+    <script src="js/gsap.min.js"></script>
+    <script src="js/magiccursor.js"></script>
+    <!-- Text Effect js file -->
+    <script src="js/SplitText.min.js"></script>
+    <script src="js/ScrollTrigger.min.js"></script>
+    <!-- YTPlayer js File -->
+    <script src="js/jquery.mb.YTPlayer.min.js"></script>
+    <!-- Wow js file -->
+    <script src="js/wow.min.js"></script>
+    <!-- Main Custom js file -->
+    <script src="js/function.js"></script>
+</body>
+
+</html>
+
