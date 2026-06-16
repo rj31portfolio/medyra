@@ -1,8 +1,24 @@
+make dropdown for all page in header and that open as hover and service tab to change our Products 
+MAIN MENU (3 Categories)
+
+1. Oncology
+
+Tablets / Capsules  - Download Catalog
+
+Injection  - Download Catalog
 
 
+2. General Medicine
 
+Syrups
+Tablets
+Injection
 
+3. Infusions
+
+Download Catalogue
 
 
 
 https://www.medyraonco.com/
+
