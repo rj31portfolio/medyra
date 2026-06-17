@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="Medyra Pharmaceutical oncology products page">
+    <meta name="keywords" content="oncology products, injections, tablets, capsules, Medyra">
+    <meta name="author" content="Awaiken">
+    <!-- Page Title -->
+    <title>Medyra Pharmaceutical - Oncology Products</title>
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="images/logo-md-logo.png">
+    <!-- Google Fonts Css-->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;display=swap"
+        rel="stylesheet">
+    <!-- Bootstrap Css -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <!-- SlickNav Css -->
+    <link href="css/slicknav.min.css" rel="stylesheet">
+    <!-- Swiper Css -->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <!-- Font Awesome Icon Css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Animated Css -->
+    <link href="css/animate.css" rel="stylesheet">
+    <!-- Magnific Popup Core Css File -->
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <!-- Mouse Cursor Css File -->
+    <link rel="stylesheet" href="css/mousecursor.css">
+    <!-- Main Custom Css -->
+    <link href="css/custom.css" rel="stylesheet" media="screen">
+    <style>
+        main {
+            padding-top: 102px;
+        }
+
+        .oncology-band {
+            padding: 22px 0;
+            background: #111522;
+            margin-top: 0;
+        }
+
+        .oncology-band h1 {
+            margin: 0;
+            color: #ffffff;
+            font-size: 38px;
+            text-align: center;
+        }
+
+        .oncology-catalog-page {
+            padding: 60px 0 110px;
+            background: #ffffff;
+        }
+
+        .oncology-section {
+            margin-bottom: 54px;
+        }
+
+        .oncology-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .oncology-section-title {
+            margin-bottom: 28px;
+            text-align: center;
+        }
+
+        .oncology-section-title h2 {
+            margin: 0;
+            color: #2c2f3a;
+            font-size: 34px;
+        }
+
+        .oncology-section-title::after {
+            content: "";
+            display: block;
+            width: 42px;
+            height: 3px;
+            margin: 12px auto 0;
+            background: #efb35a;
+            border-radius: 999px;
+        }
+
+        .oncology-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 34px 26px;
+        }
+
+        .oncology-card {
+            text-align: center;
+        }
+
+        .oncology-card-visual {
+            padding: 8px;
+            border: 1px solid #ececec;
+            border-radius: 4px;
+            background: #ffffff;
+            box-shadow: 0 2px 12px rgba(31, 41, 55, 0.12);
+        }
+
+        .oncology-card-visual img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            display: block;
+            background: #ffffff;
+        }
+
+        .oncology-card p {
+            margin: 14px 0 0;
+            color: #202020;
+            font-size: 15px;
+            line-height: 1.45em;
+            font-weight: 700;
+        }
+
+        @media only screen and (max-width: 991px) {
+            main {
+                padding-top: 94px;
+            }
+
+            .oncology-band h1 {
+                font-size: 32px;
+            }
+
+            .oncology-section-title h2 {
+                font-size: 30px;
+            }
+
+            .oncology-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 26px 18px;
+            }
+        }
+
+        @media only screen and (max-width: 767px) {
+            main {
+                padding-top: 88px;
+            }
+
+            .oncology-catalog-page {
+                padding: 50px 0 90px;
+            }
+
+            .oncology-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 22px 16px;
+            }
+
+            .oncology-section-title h2 {
+                font-size: 26px;
+            }
+        }
+
+        @media only screen and (max-width: 479px) {
+            main {
+                padding-top: 82px;
+            }
+
+            .oncology-band {
+                padding: 14px 0;
+            }
+
+            .oncology-band h1 {
+                font-size: 28px;
+            }
+
+            .oncology-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 20px 14px;
+            }
+
+            .oncology-card p {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div class="preloader">
+        <div class="loading-container">
+            <div class="loading"></div>
+            <div id="loading-icon"><img src="images/md-logo.png" alt="Medyra Logo"></div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- Header Start -->
+    <header class="main-header">
+        <div class="header-sticky">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <!-- Logo Start -->
+                    <a class="navbar-brand" href="index.html">
+                        <img src="images/logo-md.png" alt="Logo">
+                    </a>
+                    <!-- Logo End -->
+
+                    <!-- Main Menu Start -->
+                    <div class="collapse navbar-collapse main-menu">
+                        <div class="nav-menu-wrapper">
+                            <ul class="navbar-nav mr-auto" id="menu">
+                                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                                <li class="nav-item"><a class="nav-link" href="blog.html">Company Profile</a></li>
+                                <li class="nav-item submenu"><a class="nav-link" href="services.html">Our Products</a>
+                                    <ul>
+                                        <li class="nav-item submenu"><a class="nav-link" href="oncology.html">Oncology</a>
+                                            <ul>
+                                                <li class="nav-item submenu"><a class="nav-link" href="#tablets-capsules">Tablets / Capsules</a>
+                                                    <ul>
+                                                        <li class="nav-item"><a class="nav-link" href="oncology.html">Download Catalog</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="nav-item submenu"><a class="nav-link" href="#injections">Injection</a>
+                                                    <ul>
+                                                        <li class="nav-item"><a class="nav-link" href="oncology.html">Download Catalog</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item submenu"><a class="nav-link" href="services.html">General Medicine</a>
+                                            <ul>
+                                                <li class="nav-item"><a class="nav-link" href="services.html">Syrups</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="services.html">Tablets</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="services.html">Injection</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item submenu"><a class="nav-link" href="services.html">Infusions</a>
+                                            <ul>
+                                                <li class="nav-item"><a class="nav-link" href="services.html">Download Catalogue</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                                <li class="nav-item highlighted-menu"><a class="nav-link"
+                                        href="book-appointment.html">Book Appointment</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Header Btn Start -->
+                        <div class="header-btn">
+                            <a href="book-appointment.html" class="btn-default">Book Appointment</a>
+                        </div>
+                        <!-- Header Btn End -->
+                    </div>
+                    <!-- Main Menu End -->
+                    <div class="navbar-toggle"></div>
+                </div>
+            </nav>
+            <div class="responsive-menu"></div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <main>
+        <section class="oncology-band">
+            <div class="container">
+                <h1>Oncology</h1>
+            </div>
+        </section>
+
+        <section class="oncology-catalog-page">
+            <div class="container">
+                <div class="oncology-section" id="injections">
+                    <div class="oncology-section-title">
+                        <h2>Injections</h2>
+                    </div>
+                    <div class="oncology-grid" id="injections-grid"></div>
+                </div>
+
+                <div class="oncology-section" id="tablets-capsules">
+                    <div class="oncology-section-title">
+                        <h2>Tablets / Capsules</h2>
+                    </div>
+                    <div class="oncology-grid" id="tablets-grid"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Main Footer Start -->
+    <footer class="main-footer bg-section dark-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-4">
+                    <!-- About Footer Start -->
+                    <div class="about-footer">
+                        <!-- Footer Logo Start -->
+                        <div class="footer-logo">
+                            <img src="images/md-logo.png" alt="Medyra Logo">
+                        </div>
+                        <!-- Footer Logo End -->
+
+                        <!-- About Footer Content Start -->
+                        <div class="about-footer-content">
+                            <p>At Medyra Pharmaceutical, we bring over 15 years of expertise in delivering cutting-edge
+                                healthcare solutions. Today, we stand proud as one of the fastest-growing oncology
+                                companies, dedicated to improving lives by offering world-class medications at highly
+                                affordable prices.</p>
+                        </div>
+                        <!-- About Footer Content End -->
+
+                        <!-- Footer Social Links Start  -->
+                        <div class="footer-social-links">
+                            <ul>
+                                <li><a href="https://www.youtube.com/@MedyraPharmaceutical" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a></li>
+                                <li><a href="https://www.linkedin.com/company/medyrapharmaceutical/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                                <li><a href="https://www.facebook.com/medyrapharma/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                <li><a href="https://www.instagram.com/medyrapharmaceutical/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                        <!-- Footer Social Links End  -->
+                    </div>
+                    <!-- About Footer End -->
+                </div>
+
+                <div class="col-xl-8">
+                    <!-- Footer Links Box Start -->
+                    <div class="footer-links-box">
+                        <!-- Footer Links Start -->
+                        <div class="footer-links">
+                            <h2>Quick Links</h2>
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="services.html">Our Services</a></li>
+                                <li><a href="blog.html">Our Blogs</a></li>
+                            </ul>
+                        </div>
+                        <!-- Footer Links End -->
+
+                        <!-- Footer Links Start -->
+                        <div class="footer-links">
+                            <h2>Working Hours</h2>
+                            <ul>
+                                <li>Mon - Fri: 09AM - 06PM</li>
+                                <li>Saturday: 10AM - 02PM</li>
+                                <li>Sunday : Closed</li>
+                            </ul>
+                        </div>
+                        <!-- Footer Links End -->
+
+                        <!-- Footer Links Start -->
+                        <div class="footer-links footer-branch-box">
+                            <h2>Our Branches</h2>
+                            <div class="footer-branch-image">
+                                <figure>
+                                    <img src="images/footer-branch-image.png" alt="">
+                                </figure>
+                            </div>
+                        </div>
+                        <!-- Footer Links End -->
+                        <!-- Footer Contact Info List Start -->
+                        <div class="footer-contact-info-list">
+                            <ul>
+                                <li><img src="images/icon-phone-accent.svg" alt=""><a href="tel:+91 9810246055">+91
+                                        9810246055</a></li>
+                                <li><img src="images/icon-mail-accent.svg" alt=""><a
+                                        href="mailto:pharmaceutical@medyra.in">Pharmaceutical@medyra.in</a></li>
+                                <li><img src="images/icon-location-accent.svg" alt="">O Block, 169, DSIIDC Industrial
+                                    Area, Sector 1, Bawana, Delhi, 110039 (India)</li>
+                            </ul>
+                        </div>
+                        <!-- Footer Contact Info List End -->
+                    </div>
+                    <!-- Footer Links Box End -->
+                </div>
+
+                <div class="col-lg-12">
+                    <!-- Footer Copyright Text Start -->
+                    <div class="footer-copyright-text">
+                        <p>Copyright © 2026 All Rights Reserved.</p>
+                    </div>
+                    <!-- Footer Copyright Text End -->
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Main Footer End -->
+
+    <!-- Jquery Library File -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <!-- Circle Progress Js File -->
+    <script src="js/circle-progress.min.js"></script>
+    <!-- Bootstrap js file -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Validator js file -->
+    <script src="js/validator.min.js"></script>
+    <!-- SlickNav js file -->
+    <script src="js/jquery.slicknav.js"></script>
+    <!-- Swiper js file -->
+    <script src="js/swiper-bundle.min.js"></script>
+    <!-- Counter js file -->
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <!-- Magnific js file -->
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <!-- SmoothScroll -->
+    <script src="js/SmoothScroll.js"></script>
+    <!-- Parallax js -->
+    <script src="js/parallaxie.js"></script>
+    <!-- MagicCursor js file -->
+    <script src="js/gsap.min.js"></script>
+    <script src="js/magiccursor.js"></script>
+    <!-- Text Effect js file -->
+    <script src="js/SplitText.min.js"></script>
+    <script src="js/ScrollTrigger.min.js"></script>
+    <!-- YTPlayer js File -->
+    <script src="js/jquery.mb.YTPlayer.min.js"></script>
+    <!-- Wow js file -->
+    <script src="js/wow.min.js"></script>
+    <!-- Main Custom js file -->
+    <script src="js/function.js"></script>
+    <script>
+        const placeholderImage = "images/oncology-product-placeholder.svg";
+
+        const injections = [
+            "Carboplatin Injection 150 mg",
+            "Carboplatin Injection 450 mg",
+            "Bleomycin Injection 15 Unit",
+            "Cisplatin Injection 50 mg",
+            "Cytarabine Injection BP 1 g",
+            "Cytarabine Injection BP 100 mg",
+            "Cytarabine Injection BP 500 mg",
+            "Dacarbazine Injection USP 200 mg",
+            "Daunorubicin Injection 20 mg",
+            "Docetaxel Injection 20 mg",
+            "Docetaxel Injection 80 mg",
+            "Docetaxel Injection 120 mg",
+            "Doxorubicin HCI Injection 50 mg",
+            "Epirubicin Hydrochloride Injection 50 mg",
+            "Etoposide Injection 100 mg",
+            "Fluorouracil Injection 500 mg",
+            "Ifosfamide for Injection 2g",
+            "Leucovorin Calcium Injection 50 mg",
+            "Irinotecan Hydrochloride Injection 100mg",
+            "L-Asparaginase for Injection 10000 IU",
+            "Paclitaxel Injection 300 mg",
+            "Pemetrexed Injection 500 mg",
+            "Methotrexate Injection 50 mg",
+            "Methotrexate Injection 500 mg",
+            "Oxaliplatin Injection USP 100 mg",
+            "Paclitaxel Injection 100 mg",
+            "Paclitaxel Injection 260 mg",
+            "Paclitaxel Injection 300 mg",
+            "Vinblastine Sulphate Injection 10mg",
+            "Vinorelbine Injection 50 mg",
+            "Vincristine Sulphate Injection 1mg",
+            "Zoledronic Acid Injection 4mg",
+            "Bortezomib Injection 2 mg",
+            "Gemcitabine Injection 1000 mg",
+            "Ifosfamide for Injection 1g",
+            "Carfilzomib for Injection 60mg"
+        ];
+
+        const tablets = [
+            "Abiraterone Tablet 250 mg Tablet",
+            "Abiraterone Tablet 500 mg Tablet",
+            "Anastrozole Tablet IP 1 mg",
+            "Imatinib Mesylate Tablets 400 mg",
+            "Bicalutamide Tablet 50 mg",
+            "Chlorambucil Tablets 2 mg",
+            "Gefitinib Tablet 250 mg",
+            "Capecitabine Tablet 500 mg",
+            "Melphalan Tablets 2 mg",
+            "Sorafenib Tablets 200 mg",
+            "Tamoxifen Tablets 20 mg",
+            "Methotrexate Tablets 2.5 mg",
+            "Regorafenib Tablet 40 mg",
+            "Pazopanib Hcl Tablets 400 mg",
+            "Lenalidomide Capsule 25 mg",
+            "Aprepitant Capsule 125/80 mg",
+            "Temozolomide Capsules 20 mg",
+            "Temozolomide Capsules 100 mg",
+            "Temozolomide Capsules 250 mg",
+            "Thalidomide Capsule USP 100mg",
+            "Hydroxyurea Capsule 500 mg",
+            "Lenalidomide Capsule 5 mg",
+            "Lenalidomide Capsule 10 mg",
+            "Hydroxyurea Capsule 500 mg"
+        ];
+
+        function renderProducts(containerId, items) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = items.map((item) => `
+                <div class="oncology-card">
+                    <div class="oncology-card-visual">
+                        <img src="${placeholderImage}" alt="${item}">
+                    </div>
+                    <p>${item}</p>
+                </div>
+            `).join("");
+        }
+
+        renderProducts("injections-grid", injections);
+        renderProducts("tablets-grid", tablets);
+    </script>
+</body>
+
+</html>
