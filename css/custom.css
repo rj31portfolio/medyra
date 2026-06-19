@@ -2777,6 +2777,23 @@ header.main-header .header-sticky.active{
 	color: var(--accent-secondary-color);
 }
 
+.footer-contact-copy{
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.footer-contact-copy strong{
+	font-size: 15px;
+	font-weight: 600;
+	letter-spacing: 0.02em;
+}
+
+.footer-contact-copy a{
+	font-size: 17px;
+	font-weight: 500;
+}
+
 .footer-copyright-text{
 	border-top: 1px solid var(--dark-divider-color);
 	text-align: center;
@@ -4864,6 +4881,49 @@ header.main-header .header-sticky.active{
 }
 
 .contact-info-item .contact-info-item-content h3 a:hover{
+	color: var(--accent-secondary-color);
+}
+
+.contact-info-item-content .contact-detail-list{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+}
+
+.contact-info-item-content .contact-detail-list li{
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	font-size: 18px;
+	line-height: 1.6em;
+}
+
+.contact-info-item-content .contact-detail-list li i{
+	color: var(--accent-secondary-color);
+	font-size: 18px;
+	margin-top: 5px;
+	min-width: 18px;
+}
+
+.contact-info-item-content .contact-detail-list li span{
+	display: block;
+	color: var(BLACK);
+	font-size: 15px;
+	font-weight: 600;
+	margin-bottom: 2px;
+}
+
+.contact-info-item-content .contact-detail-list li a{
+	color: var(--primary-color);
+	font-size: 20px;
+	font-weight: 600;
+	transition: all 0.3s ease-in-out;
+}
+
+.contact-info-item-content .contact-detail-list li a:hover{
 	color: var(--accent-secondary-color);
 }
 
