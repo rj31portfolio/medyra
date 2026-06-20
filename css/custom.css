@@ -2799,6 +2799,74 @@ header.main-header .header-sticky.active{
 	font-weight: 500;
 }
 
+.footer-address-details{
+	max-width: 280px;
+}
+
+.footer-address-details ul li{
+	line-height: 1.7em;
+}
+
+.footer-contact-showcase{
+	flex: 1 1 100%;
+	max-width: 100%;
+	margin-top: 8px;
+}
+
+.footer-contact-showcase .footer-contact-list{
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 14px;
+	width: 100%;
+}
+
+.footer-contact-showcase .footer-contact-list li{
+	margin-bottom: 0;
+	min-width: 0;
+	display: flex;
+}
+
+.footer-contact-showcase .footer-contact-item{
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	width: 100%;
+	min-height: 82px;
+	padding: 16px 18px;
+	border-radius: 14px;
+	background: rgba(255, 255, 255, 0.06);
+	border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.footer-contact-showcase .footer-contact-item img{
+	width: 18px;
+	max-width: 18px;
+	margin-top: 0;
+	flex-shrink: 0;
+}
+
+.footer-contact-showcase .footer-contact-copy{
+	min-width: 0;
+	gap: 4px;
+}
+
+.footer-contact-showcase .footer-contact-copy strong{
+	display: block;
+	font-size: 12px;
+	line-height: 1.4;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: rgba(255,255,255,0.68);
+}
+
+.footer-contact-showcase .footer-contact-copy a{
+	display: inline-block;
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 1.35;
+	word-break: break-word;
+}
+
 .footer-copyright-text{
 	border-top: 1px solid var(--dark-divider-color);
 	text-align: center;
@@ -6541,6 +6609,19 @@ header.main-header .header-sticky.active{
 		margin-bottom: 15px;
 	}
 	
+	.footer-contact-showcase .footer-contact-list{
+		gap: 12px;
+	}
+
+	.footer-contact-showcase .footer-contact-item{
+		min-height: 76px;
+		padding: 15px 16px;
+	}
+
+	.footer-contact-showcase .footer-contact-copy a{
+		font-size: 17px;
+	}
+
 	.footer-contact-list li{
 		gap: 8px;
 		margin-bottom: 14px;
@@ -6548,6 +6629,25 @@ header.main-header .header-sticky.active{
 
 	.footer-contact-list li img{
 		max-width: 18px;
+	}
+
+	.footer-contact-showcase{
+		margin-top: 0;
+	}
+
+	.footer-contact-showcase .footer-contact-list{
+		grid-template-columns: 1fr;
+		gap: 12px;
+	}
+
+	.footer-contact-showcase .footer-contact-item{
+		min-height: 0;
+		padding: 14px 15px;
+		border-radius: 12px;
+	}
+
+	.footer-contact-showcase .footer-contact-copy a{
+		font-size: 16px;
 	}
 
 	.footer-copyright-text{
