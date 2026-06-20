@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ï»¿<!DOCTYPE html>
 <html lang="zxx">
 
 <head>
@@ -109,6 +109,110 @@
             z-index: 1;
         }
 
+        .footer-contact-showcase {
+            flex: 1 1 100%;
+            max-width: 100%;
+            margin-top: 8px;
+        }
+
+        .footer-address-details {
+            max-width: 280px;
+        }
+
+        .footer-address-details ul li {
+            line-height: 1.7em;
+        }
+
+        .footer-contact-showcase .footer-contact-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            width: 100%;
+        }
+
+        .footer-contact-showcase .footer-contact-list li {
+            margin-bottom: 0;
+            min-width: 0;
+            display: flex;
+        }
+
+        .footer-contact-showcase .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            width: 100%;
+            min-height: 82px;
+            padding: 16px 18px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.10);
+        }
+
+        .footer-contact-showcase .footer-contact-item img {
+            width: 18px;
+            max-width: 18px;
+            margin-top: 0;
+            flex-shrink: 0;
+        }
+
+        .footer-contact-showcase .footer-contact-copy {
+            min-width: 0;
+            gap: 4px;
+        }
+
+        .footer-contact-showcase .footer-contact-copy strong {
+            display: block;
+            font-size: 12px;
+            line-height: 1.4;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.68);
+        }
+
+        .footer-contact-showcase .footer-contact-copy a {
+            display: inline-block;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.35;
+            word-break: break-word;
+        }
+
+        @media only screen and (max-width: 991px) {
+            .footer-contact-showcase .footer-contact-list {
+                gap: 12px;
+            }
+
+            .footer-contact-showcase .footer-contact-item {
+                min-height: 76px;
+                padding: 15px 16px;
+            }
+
+            .footer-contact-showcase .footer-contact-copy a {
+                font-size: 17px;
+            }
+        }
+
+        @media only screen and (max-width: 767px) {
+            .footer-contact-showcase {
+                margin-top: 0;
+            }
+
+            .footer-contact-showcase .footer-contact-list {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .footer-contact-showcase .footer-contact-item {
+                min-height: 0;
+                padding: 14px 15px;
+                border-radius: 12px;
+            }
+
+            .footer-contact-showcase .footer-contact-copy a {
+                font-size: 16px;
+            }
+        }
+
         .global-supply-copy {
             padding-right: 20px;
         }
@@ -208,12 +312,11 @@
         }
 
         .global-supply-map-card {
-            padding: 28px;
-            border-radius: 32px;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.05) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.14);
-            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.22);
-            backdrop-filter: blur(16px);
+            padding: 0;
+            background: transparent;
+            border: 0;
+            box-shadow: none;
+            backdrop-filter: none;
         }
 
         .global-supply-map-header {
@@ -238,60 +341,80 @@
 
         .global-map-shell {
             position: relative;
-            min-height: 520px;
-            border-radius: 28px;
-            padding: 24px;
-            background:
-                radial-gradient(circle at center, rgba(19, 224, 185, 0.14), transparent 48%),
-                linear-gradient(180deg, rgba(3, 25, 36, 0.8) 0%, rgba(5, 49, 74, 0.72) 100%);
+            width: 100%;
+            aspect-ratio: 3 / 2;
+            min-height: 0;
+            border-radius: 0;
+            padding: 0;
+            background: transparent;
             overflow: hidden;
         }
 
         .global-map-shell::before {
-            content: "";
-            position: absolute;
-            inset: 18px;
-            border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            pointer-events: none;
+            content: none;
         }
 
-        .global-map-shell svg {
+        .global-map-visual {
+            position: absolute;
+            inset: 0;
+            border-radius: 0;
+            overflow: hidden;
+            border: 0;
+        }
+
+        .global-map-visual::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(180deg, rgba(3, 22, 31, 0.08), rgba(3, 22, 31, 0.12));
+        }
+
+        .global-map-image {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
             display: block;
         }
 
-        .map-base {
-            fill: rgba(255, 255, 255, 0.08);
-            stroke: rgba(255, 255, 255, 0.18);
-            stroke-width: 1.4;
+        .map-routes {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
         }
 
-        .map-route {
-            fill: none;
-            stroke: rgba(128, 255, 238, 0.72);
-            stroke-width: 2.6;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            stroke-dasharray: 7 10;
-            animation: routeFlow 7s linear infinite;
-            filter: drop-shadow(0 0 8px rgba(19, 224, 185, 0.35));
+        .map-route-line {
+            position: absolute;
+            height: 3px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, rgba(19, 224, 185, 0.25) 0%, rgba(191, 254, 247, 0.92) 50%, rgba(19, 224, 185, 0.25) 100%);
+            box-shadow: 0 0 18px rgba(19, 224, 185, 0.38);
+            overflow: hidden;
+            transform-origin: left center;
         }
 
-        .map-route.route-main {
-            stroke: rgba(172, 255, 245, 0.95);
-            stroke-width: 3;
+        .map-route-line::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.92) 45%, transparent 100%);
+            background-size: 160px 100%;
+            animation: routeFlow 4.8s linear infinite;
         }
 
-        .map-route.route-alt {
-            animation-duration: 9s;
-            opacity: 0.68;
+        .map-route-line.route-line-west {
+            top: 52.7%;
+            left: 22.8%;
+            width: 8.8%;
+            transform: rotate(42deg);
         }
 
-        .route-node {
-            fill: rgba(172, 255, 245, 0.95);
-            filter: drop-shadow(0 0 10px rgba(19, 224, 185, 0.65));
+        .map-route-line.route-line-east {
+            top: 59.7%;
+            left: 28.4%;
+            width: 39.6%;
+            transform: rotate(-9.5deg);
         }
 
         .route-caption {
@@ -319,11 +442,11 @@
 
         .map-point {
             position: absolute;
-            width: 22px;
-            height: 22px;
+            width: 24px;
+            height: 24px;
             transform: translate(-50%, -50%);
             cursor: pointer;
-            z-index: 2;
+            z-index: 3;
         }
 
         .map-point::before,
@@ -355,7 +478,7 @@
             position: absolute;
             left: 50%;
             bottom: calc(100% + 16px);
-            width: 220px;
+            width: 230px;
             padding: 14px 16px;
             border-radius: 18px;
             background: rgba(255, 255, 255, 0.96);
@@ -400,18 +523,18 @@
         }
 
         .map-point-india {
-            top: 50%;
-            left: 63%;
+            top: 51.2%;
+            left: 55.9%;
         }
 
         .map-point-uae {
-            top: 45%;
-            left: 54%;
+            top: 58%;
+            left: 24.5%;
         }
 
         .map-point-nigeria {
-            top: 53%;
-            left: 41%;
+            top: 52.3%;
+            left: 18.7%;
         }
 
         @keyframes rippleFlow {
@@ -419,25 +542,30 @@
                 transform: scale(0.8);
                 opacity: 0.9;
             }
+
             100% {
                 transform: scale(2.7);
                 opacity: 0;
             }
         }
-
+  
         @keyframes routeFlow {
             from {
-                stroke-dashoffset: 0;
+                transform: translateX(-100%);
             }
+
             to {
-                stroke-dashoffset: -180;
+                transform: translateX(100%);
             }
         }
-
+ 
         @keyframes supplyPulse {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: scale(1);
             }
+
             50% {
                 transform: scale(1.16);
             }
@@ -458,11 +586,24 @@
             }
 
             .global-map-shell {
-                min-height: 440px;
+                aspect-ratio: 3 / 2;
+            }
+
+            .map-route-line.route-line-west {
+                top: 52.7%;
+                left: 22.8%;
+                width: 8.8%;
+            }
+
+            .map-route-line.route-line-east {
+                top: 59.7%;
+                left: 28.4%;
+                width: 39.6%;
             }
         }
 
         @media (max-width: 767px) {
+
             .global-supply-feature-list,
             .global-supply-stats {
                 grid-template-columns: 1fr;
@@ -479,12 +620,44 @@
             }
 
             .global-map-shell {
-                min-height: 360px;
-                padding: 18px;
+                aspect-ratio: 3 / 2;
+            }
+
+            .global-map-visual,
+            .map-routes {
+                inset: 0;
+            }
+
+            .map-route-line {
+                height: 2px;
+            }
+
+            .map-route-line.route-line-west {
+                top: 52.7%;
+                left: 22.7%;
+                width: 9.1%;
+            }
+
+            .map-route-line.route-line-east {
+                top: 59.6%;
+                left: 28.4%;
+                width: 39.8%;
             }
 
             .map-label {
                 width: 190px;
+            }
+
+            .map-point-nigeria {
+                left: 22.7%;
+            }
+
+            .map-point-uae {
+                left: 28.5%;
+            }
+
+            .map-point-india {
+                left: 67.9%;
             }
         }
     </style>
@@ -521,32 +694,43 @@
                                 <li class="nav-item"><a class="nav-link" href="blog.html">Company Profile</a></li>
                                 <li class="nav-item submenu"><a class="nav-link" href="services.html">Our Products</a>
                                     <ul>
-                                        <li class="nav-item submenu"><a class="nav-link" href="services.html">Oncology</a>
+                                        <li class="nav-item submenu"><a class="nav-link"
+                                                href="services.html">Oncology</a>
                                             <ul>
-                                                <li class="nav-item submenu"><a class="nav-link" href="services.html">Tablets / Capsules</a>
+                                                <li class="nav-item submenu"><a class="nav-link"
+                                                        href="services.html">Tablets / Capsules</a>
                                                     <ul>
-                                                        <li class="nav-item"><a class="nav-link" href="services.html">Download Catalog</a></li>
-                                                       
+                                                        <li class="nav-item"><a class="nav-link"
+                                                                href="services.html">Download Catalog</a></li>
+
                                                     </ul>
                                                 </li>
-                                                <li class="nav-item submenu"><a class="nav-link" href="services.html">Injection</a>
+                                                <li class="nav-item submenu"><a class="nav-link"
+                                                        href="services.html">Injection</a>
                                                     <ul>
-                                                        <li class="nav-item"><a class="nav-link" href="services.html">Download Catalog</a></li>
-                                                        
+                                                        <li class="nav-item"><a class="nav-link"
+                                                                href="services.html">Download Catalog</a></li>
+
                                                     </ul>
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li class="nav-item submenu"><a class="nav-link" href="services.html">General Medicine</a>
+                                        <li class="nav-item submenu"><a class="nav-link" href="services.html">General
+                                                Medicine</a>
                                             <ul>
-                                                <li class="nav-item"><a class="nav-link" href="services.html">Syrups</a></li>
-                                                <li class="nav-item"><a class="nav-link" href="services.html">Tablets</a></li>
-                                                <li class="nav-item"><a class="nav-link" href="services.html">Injection</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="services.html">Syrups</a>
+                                                </li>
+                                                <li class="nav-item"><a class="nav-link"
+                                                        href="services.html">Tablets</a></li>
+                                                <li class="nav-item"><a class="nav-link"
+                                                        href="services.html">Injection</a></li>
                                             </ul>
                                         </li>
-                                        <li class="nav-item submenu"><a class="nav-link" href="services.html">Infusions</a>
+                                        <li class="nav-item submenu"><a class="nav-link"
+                                                href="services.html">Infusions</a>
                                             <ul>
-                                                <li class="nav-item"><a class="nav-link" href="services.html">Download Catalogue</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="services.html">Download
+                                                        Catalogue</a></li>
                                             </ul>
                                         </li>
                                     </ul>
@@ -832,41 +1016,37 @@
                     <div class="global-supply-map-card wow fadeInUp" data-wow-delay="0.4s">
                         <div class="global-supply-map-header">
                             <h3>Active International Reach Map</h3>
-                            <p>Hover over each blinking point to see the address, then click to open that location in Google Maps.</p>
+                            <p>Hover over each blinking point to see the address, then click to open that location in
+                                Google Maps.</p>
                         </div>
 
                         <div class="global-map-shell">
-                            <svg viewBox="0 0 700 420" aria-hidden="true">
-                                <path class="map-base"
-                                    d="M93 126l33-17 40 9 33-15 34 8 34-15 39 10 24 30 46 4 27 22 40-4 34 14 27 29-16 33-41 25-50 8-27 21-18 35-53 11-31-19-43-1-36-24-45-1-20-27 9-40-20-37 4-39 16-29z" />
-                                <path class="map-base"
-                                    d="M323 172l24-13 34 2 19 22 26 5 11 19 25 10 15 25-14 16-29 0-19 17-5 28-15 19-23-8-9-32-21-24-27-17-7-23 8-23z" />
-                                <path class="map-base"
-                                    d="M504 154l33-11 24 13 25-8 28 20 12 39-17 27-10 39-33 15-26-6-11-20-30-20-18-28 4-25-14-15 9-20z" />
-                                <path class="map-route route-main" d="M286 223C324 222 341 193 379 188C416 183 456 189 494 184C521 181 541 178 563 175" />
-                                <path class="map-route route-alt" d="M286 223C325 238 343 238 380 228C424 216 457 208 494 196C522 187 542 181 563 175" />
-                                <circle class="route-node" cx="286" cy="223" r="4.5" />
-                                <circle class="route-node" cx="379" cy="188" r="4.5" />
-                                <circle class="route-node" cx="563" cy="175" r="4.5" />
-                            </svg>
+                            <div class="global-map-visual">
+                                <img src="images/globalmap.png" alt="Global supply map" class="global-map-image">
+                            </div>
+
+                            <div class="map-routes" aria-hidden="true">
+                                <span class="map-route-line route-line-west"></span>
+                                <span class="map-route-line route-line-east"></span>
+                            </div>
 
                             <div class="map-point map-point-nigeria">
-                                <a href="https://www.google.com/maps/search/?api=1&query=Ikeja%2C+Lagos%2C+Nigeria"
-                                    target="_blank" rel="noopener noreferrer"
-                                    aria-label="Open Lagos coverage point in Google Maps"></a>
+                                <a href="https://www.google.com/maps/search/?api=1&query=Cameroon" target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Open Cameroon coverage point in Google Maps"></a>
                                 <div class="map-label">
-                                    <strong>West Africa Supply Point</strong>
-                                    <span>Ikeja, Lagos, Nigeria</span>
+                                    <strong>Cameroon Supply Point</strong>
+                                    <span>Central Africa regional coverage</span>
                                 </div>
                             </div>
 
                             <div class="map-point map-point-uae">
-                                <a href="https://www.google.com/maps/search/?api=1&query=Jebel+Ali+Free+Zone%2C+Dubai%2C+UAE"
-                                    target="_blank" rel="noopener noreferrer"
-                                    aria-label="Open Dubai coverage point in Google Maps"></a>
+                                <a href="https://www.google.com/maps/search/?api=1&query=Zambia" target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Open Zambia coverage point in Google Maps"></a>
                                 <div class="map-label">
-                                    <strong>Middle East Supply Point</strong>
-                                    <span>Jebel Ali Free Zone, Dubai, UAE</span>
+                                    <strong>Zambia Supply Point</strong>
+                                    <span>Southern Africa regional coverage</span>
                                 </div>
                             </div>
 
@@ -876,11 +1056,12 @@
                                     aria-label="Open Delhi manufacturing hub in Google Maps"></a>
                                 <div class="map-label">
                                     <strong>India Manufacturing Hub</strong>
-                                    <span>O Block, 169, DSIIDC Industrial Area, Sector 1, Bawana, Delhi, 110039, India</span>
+                                    <span>O Block, 169, DSIIDC Industrial Area, Sector 1, Bawana, Delhi, 110039,
+                                        India</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="route-caption">Connected route: Nigeria to UAE to India</div>
+                        <div class="route-caption">Connected route: Cameroon to Zambia to India</div>
                     </div>
                 </div>
             </div>
@@ -1192,7 +1373,7 @@
             <!-- <video autoplay muted loop playsinline id="myvideo"><source src="images/genlab-why-choose-bg-video.mp4" type="video/mp4"></video> -->
             <video autoplay muted loop playsinline id="myvideo">
                 <source src="https://demo.awaikenthemes.com/assets/videos/genlab-why-choose-video.mp4" type="video/mp4">
-                </video>
+            </video>
             <!-- Selfhosted Video End -->
 
             <!-- Youtube Video Start -->
@@ -1798,8 +1979,8 @@
                                                 <i class="fa fa-solid fa-star"></i>
                                             </div>
                                             <div class="testimonial-item-content">
-                                                <p>“The level of scientific support and data reporting expectations.
-                                                    Their services helped validate our product for regulatory approval.”
+                                                <p>ï¿½The level of scientific support and data reporting expectations.
+                                                    Their services helped validate our product for regulatory approval.ï¿½
                                                 </p>
                                             </div>
                                         </div>
@@ -1833,8 +2014,8 @@
                                                 <i class="fa fa-solid fa-star"></i>
                                             </div>
                                             <div class="testimonial-item-content">
-                                                <p>“The level of scientific support and data reporting expectations.
-                                                    Their services helped validate our product for regulatory approval.”
+                                                <p>ï¿½The level of scientific support and data reporting expectations.
+                                                    Their services helped validate our product for regulatory approval.ï¿½
                                                 </p>
                                             </div>
                                         </div>
@@ -1868,8 +2049,8 @@
                                                 <i class="fa fa-solid fa-star"></i>
                                             </div>
                                             <div class="testimonial-item-content">
-                                                <p>“The level of scientific support and data reporting expectations.
-                                                    Their services helped validate our product for regulatory approval.”
+                                                <p>ï¿½The level of scientific support and data reporting expectations.
+                                                    Their services helped validate our product for regulatory approval.ï¿½
                                                 </p>
                                             </div>
                                         </div>
@@ -1903,8 +2084,8 @@
                                                 <i class="fa fa-solid fa-star"></i>
                                             </div>
                                             <div class="testimonial-item-content">
-                                                <p>“The level of scientific support and data reporting expectations.
-                                                    Their services helped validate our product for regulatory approval.”
+                                                <p>ï¿½The level of scientific support and data reporting expectations.
+                                                    Their services helped validate our product for regulatory approval.ï¿½
                                                 </p>
                                             </div>
                                         </div>
@@ -2203,7 +2384,82 @@
     <!-- Our Appointment Section Start -->
 
     <!-- Our Blog Section Start -->
-    <div class="our-blog "> <div class="container"> <div class="row section-row"> <div class="col-lg-12"> <!-- Section Title Start --> <div class="section-title section-title-center"> <span class="section-sub-title wow fadeInUp">Latest News & Insights</span> <h2 class="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Latest insights from <span>oncology and pharmaceutical innovation</span></h2> </div> <!-- Section Title End --> </div> </div> <div class="row"> <div class="col-xl-4 col-md-6"> <!-- Post Item Start --> <div class="post-item wow fadeInUp"> <!-- Post Featured Image Start--> <div class="post-featured-image"> <a href="blog-single.html" data-cursor-text="View"> <figure class="image-anime"> <img src="images/post-1.jpg" alt=""> </figure> </a> </div> <!-- Post Featured Image End --> <!-- Post Item Body Start --> <div class="post-item-body"> <!-- Post Item Content Start --> <div class="post-item-content"> <h2><a href="blog-single.html">Advancing Cancer Care Through Innovative Oncology Medicines</a> </h2> </div> <!-- Post Item Content End --> <!-- Post Item Readmore Button Start--> <div class="post-item-btn"> <a href="blog-single.html" class="readmore-btn">read more</a> </div> <!-- Post Item Readmore Button End--> </div> <!-- Post Item Body End --> </div> <!-- Post Item End --> </div> <div class="col-xl-4 col-md-6"> <!-- Post Item Start --> <div class="post-item wow fadeInUp" data-wow-delay="0.2s"> <!-- Post Featured Image Start--> <div class="post-featured-image"> <a href="blog-single.html" data-cursor-text="View"> <figure class="image-anime"> <img src="images/post-2.jpg" alt=""> </figure> </a> </div> <!-- Post Featured Image End --> <!-- Post Item Body Start --> <div class="post-item-body"> <!-- Post Item Content Start --> <div class="post-item-content"> <h2><a href="blog-single.html">Ensuring Quality, Safety And Affordability In Pharmaceutical Manufacturing</a> </h2> </div> <!-- Post Item Content End --> <!-- Post Item Readmore Button Start--> <div class="post-item-btn"> <a href="blog-single.html" class="readmore-btn">read more</a> </div> <!-- Post Item Readmore Button End--> </div> <!-- Post Item Body End --> </div> <!-- Post Item End --> </div> <div class="col-xl-4 col-md-6"> <!-- Post Item Start --> <div class="post-item wow fadeInUp" data-wow-delay="0.4s"> <!-- Post Featured Image Start--> <div class="post-featured-image"> <a href="blog-single.html" data-cursor-text="View"> <figure class="image-anime"> <img src="images/post-3.jpg" alt=""> </figure> </a> </div> <!-- Post Featured Image End --> <!-- Post Item Body Start --> <div class="post-item-body"> <!-- Post Item Content Start --> <div class="post-item-content"> <h2><a href="blog-single.html">Global Access To Life-Saving Oncology Treatments And Healthcare Solutions</a></h2> </div> <!-- Post Item Content End --> <!-- Post Item Readmore Button Start--> <div class="post-item-btn"> <a href="blog-single.html" class="readmore-btn">read more</a> </div> <!-- Post Item Readmore Button End--> </div> <!-- Post Item Body End --> </div> <!-- Post Item End --> </div> </div> </div> </div>
+    <div class="our-blog ">
+        <div class="container">
+            <div class="row section-row">
+                <div class="col-lg-12">
+                    <!-- Section Title Start -->
+                    <div class="section-title section-title-center"> <span class="section-sub-title wow fadeInUp">Latest
+                            News & Insights</span>
+                        <h2 class="wow fadeInUp" data-wow-delay="0.2s" data-cursor="-opaque">Latest insights from
+                            <span>oncology and pharmaceutical innovation</span></h2>
+                    </div> <!-- Section Title End -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-4 col-md-6">
+                    <!-- Post Item Start -->
+                    <div class="post-item wow fadeInUp">
+                        <!-- Post Featured Image Start-->
+                        <div class="post-featured-image"> <a href="blog-single.html" data-cursor-text="View">
+                                <figure class="image-anime"> <img src="images/post-1.jpg" alt=""> </figure>
+                            </a> </div> <!-- Post Featured Image End -->
+                        <!-- Post Item Body Start -->
+                        <div class="post-item-body">
+                            <!-- Post Item Content Start -->
+                            <div class="post-item-content">
+                                <h2><a href="blog-single.html">Advancing Cancer Care Through Innovative Oncology
+                                        Medicines</a> </h2>
+                            </div> <!-- Post Item Content End -->
+                            <!-- Post Item Readmore Button Start-->
+                            <div class="post-item-btn"> <a href="blog-single.html" class="readmore-btn">read more</a>
+                            </div> <!-- Post Item Readmore Button End-->
+                        </div> <!-- Post Item Body End -->
+                    </div> <!-- Post Item End -->
+                </div>
+                <div class="col-xl-4 col-md-6">
+                    <!-- Post Item Start -->
+                    <div class="post-item wow fadeInUp" data-wow-delay="0.2s">
+                        <!-- Post Featured Image Start-->
+                        <div class="post-featured-image"> <a href="blog-single.html" data-cursor-text="View">
+                                <figure class="image-anime"> <img src="images/post-2.jpg" alt=""> </figure>
+                            </a> </div> <!-- Post Featured Image End -->
+                        <!-- Post Item Body Start -->
+                        <div class="post-item-body">
+                            <!-- Post Item Content Start -->
+                            <div class="post-item-content">
+                                <h2><a href="blog-single.html">Ensuring Quality, Safety And Affordability In
+                                        Pharmaceutical Manufacturing</a> </h2>
+                            </div> <!-- Post Item Content End -->
+                            <!-- Post Item Readmore Button Start-->
+                            <div class="post-item-btn"> <a href="blog-single.html" class="readmore-btn">read more</a>
+                            </div> <!-- Post Item Readmore Button End-->
+                        </div> <!-- Post Item Body End -->
+                    </div> <!-- Post Item End -->
+                </div>
+                <div class="col-xl-4 col-md-6">
+                    <!-- Post Item Start -->
+                    <div class="post-item wow fadeInUp" data-wow-delay="0.4s">
+                        <!-- Post Featured Image Start-->
+                        <div class="post-featured-image"> <a href="blog-single.html" data-cursor-text="View">
+                                <figure class="image-anime"> <img src="images/post-3.jpg" alt=""> </figure>
+                            </a> </div> <!-- Post Featured Image End -->
+                        <!-- Post Item Body Start -->
+                        <div class="post-item-body">
+                            <!-- Post Item Content Start -->
+                            <div class="post-item-content">
+                                <h2><a href="blog-single.html">Global Access To Life-Saving Oncology Treatments And
+                                        Healthcare Solutions</a></h2>
+                            </div> <!-- Post Item Content End -->
+                            <!-- Post Item Readmore Button Start-->
+                            <div class="post-item-btn"> <a href="blog-single.html" class="readmore-btn">read more</a>
+                            </div> <!-- Post Item Readmore Button End-->
+                        </div> <!-- Post Item Body End -->
+                    </div> <!-- Post Item End -->
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Our Blog Section End -->
 
     <!-- Main Footer Start -->
@@ -2231,10 +2487,14 @@
                         <!-- Footer Social Links Start  -->
                         <div class="footer-social-links">
                             <ul>
-                                <li><a href="https://www.youtube.com/@MedyraPharmaceutical" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a></li>
-                                <li><a href="https://www.linkedin.com/company/medyrapharmaceutical/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                                <li><a href="https://www.facebook.com/medyrapharma/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                <li><a href="https://www.instagram.com/medyrapharmaceutical/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a></li>
+                                <li><a href="https://www.youtube.com/@MedyraPharmaceutical" target="_blank"
+                                        rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a></li>
+                                <li><a href="https://www.linkedin.com/company/medyrapharmaceutical/" target="_blank"
+                                        rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                                <li><a href="https://www.facebook.com/medyrapharma/" target="_blank"
+                                        rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                <li><a href="https://www.instagram.com/medyrapharmaceutical/" target="_blank"
+                                        rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a></li>
                             </ul>
                         </div>
                         <!-- Footer Social Links End  -->
@@ -2269,14 +2529,57 @@
                         <!-- Footer Links End -->
 
                         <!-- Footer Links Start -->
-                        <div class="footer-links footer-branch-box footer-contact-column">
+                        <div class="footer-links footer-address-details">
+                            <h2>Address Details</h2>
+                            <ul>
+                                <li>O Block, 169</li>
+                                <li>DSIIDC Industrial Area</li>
+                                <li>Sector 1, Bawana</li>
+                                <li>Delhi 110039, India</li>
+                            </ul>
+                        </div>
+                        <!-- Footer Links End -->
+
+                        <!-- Footer Links Start -->
+                        <div class="footer-links footer-contact-showcase">
                             <h2>Contact Details</h2>
                             <ul class="footer-contact-list">
-                                <li><img src="images/icon-person-accent.svg" alt=""><span class="footer-contact-copy"><strong>CEO</strong><a href="tel:+919310979396">+91-9310979396</a></span></li>
-                                <li><img src="images/icon-phone-accent.svg" alt=""><span class="footer-contact-copy"><strong>Reception / Customer Care</strong><a href="tel:01147140040">011-47140040</a></span></li>
-                                <li><img src="images/icon-phone-accent.svg" alt=""><span class="footer-contact-copy"><strong>Sales Department</strong><a href="tel:0114740046">011-4740046-49</a></span></li>
-                                
-                                <li><img src="images/icon-globe-accent.svg" alt=""><span class="footer-contact-copy"><strong>International Sales</strong><a href="tel:9810246055">9810246055</a></span></li>
+                                <li>
+                                    <div class="footer-contact-item">
+                                        <img src="images/icon-phone-accent.svg" alt="">
+                                        <span class="footer-contact-copy">
+                                            <strong>Reception / Customer Care</strong>
+                                            <a href="tel:+911147140040">+91-11-47140040</a>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="footer-contact-item">
+                                        <img src="images/icon-phone-accent.svg" alt="">
+                                        <span class="footer-contact-copy">
+                                            <strong>Sales Department</strong>
+                                            <a href="tel:+911147400046">+91-11-4740046-49</a>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="footer-contact-item">
+                                        <img src="images/icon-person-accent.svg" alt="">
+                                        <span class="footer-contact-copy">
+                                            <strong>Chief Executive Officer</strong>
+                                            <a href="tel:+919310979396">+91-9310979396</a>
+                                        </span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="footer-contact-item">
+                                        <img src="images/icon-globe-accent.svg" alt="">
+                                        <span class="footer-contact-copy">
+                                            <strong>International Sales</strong>
+                                            <a href="tel:+919810246055">+91-9810246055</a>
+                                        </span>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                         <!-- Footer Links End -->
@@ -2287,7 +2590,7 @@
                 <div class="col-lg-12">
                     <!-- Footer Copyright Text Start -->
                     <div class="footer-copyright-text">
-                        <p>Copyright © 2026 All Rights Reserved.</p>
+                        <p>Copyright 2026 All Rights Reserved.</p>
                     </div>
                     <!-- Footer Copyright Text End -->
                 </div>
@@ -2334,10 +2637,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
