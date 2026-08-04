@@ -1168,9 +1168,9 @@
                 <div class="global-map-stage wow fadeInUp" data-wow-delay="0.2s">
                     <div class="global-map-heading">
                         <span class="section-sub-title">International Medicine Supplier</span>
-                        <h2 data-cursor="-opaque">Trusted global routes for <span>critical medicines</span></h2>
+                        <!-- <h2 data-cursor="-opaque">Trusted global routes for <span>critical medicines</span></h2>
                         <p>Designed to match the Medyra blue-teal theme, this international supply section highlights
-                            our active reach across South America, Europe, the Gulf, and Asia Pacific markets.</p>
+                            our active reach across South America, Europe, the Gulf, and Asia Pacific markets.</p> -->
                     </div>
 
                     <div class="global-map-shell">
@@ -2847,6 +2847,11 @@
     </footer>
     <!-- Main Footer End -->
 
+    <audio id="openingBackgroundAudio" preload="auto">
+        <source src="audio/opening-ringtone.mpeg" type="audio/mpeg">
+        
+    </audio>
+
     <!-- Jquery Library File -->
     <script src="js/jquery-3.7.1.min.js"></script>
     <!-- Circle Progress Js File -->
@@ -2882,6 +2887,48 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Main Custom js file -->
     <script src="js/function.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const openingAudio = document.getElementById('openingBackgroundAudio');
+
+            if (!openingAudio) {
+                return;
+            }
+
+            let hasPlayed = false;
+
+            const playOpeningAudio = function () {
+                if (hasPlayed) {
+                    return;
+                }
+
+                hasPlayed = true;
+                openingAudio.currentTime = 0;
+                openingAudio.loop = false;
+
+                const playAttempt = openingAudio.play();
+
+                if (playAttempt && typeof playAttempt.catch === 'function') {
+                    playAttempt.catch(function () {
+                        hasPlayed = false;
+                    });
+                }
+            };
+
+            const playOnceAfterInteraction = function () {
+                playOpeningAudio();
+                window.removeEventListener('click', playOnceAfterInteraction);
+                window.removeEventListener('touchstart', playOnceAfterInteraction);
+                window.removeEventListener('keydown', playOnceAfterInteraction);
+            };
+
+            playOpeningAudio();
+
+            window.addEventListener('click', playOnceAfterInteraction, { once: true });
+            window.addEventListener('touchstart', playOnceAfterInteraction, { once: true });
+            window.addEventListener('keydown', playOnceAfterInteraction, { once: true });
+        });
+    </script>
 </body>
 
 </html>
