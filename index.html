@@ -2444,7 +2444,7 @@
                                 oncology and <span>pharmaceutical questions</span></h2>
                         </div>
                         <!-- Section Title End -->
-
+ 
                         <!-- FAQ Accordion Start -->
                         <div class="faq-accordion" id="accordion">
                             <!-- FAQ Item Start -->
@@ -2847,7 +2847,7 @@
     </footer>
     <!-- Main Footer End -->
 
-    <audio id="openingBackgroundAudio" preload="auto">
+    <audio id="openingBackgroundAudio" preload="auto" autoplay>
         <source src="audio/opening-ringtone.mpeg" type="audio/mpeg">
         
     </audio>
@@ -2895,38 +2895,35 @@
                 return;
             }
 
-            let hasPlayed = false;
+            openingAudio.loop = false;
 
-            const playOpeningAudio = function () {
-                if (hasPlayed) {
+            let hasStarted = false;
+
+            const tryPlayOpeningAudio = function () {
+                if (hasStarted) {
                     return;
                 }
 
-                hasPlayed = true;
-                openingAudio.currentTime = 0;
-                openingAudio.loop = false;
-
                 const playAttempt = openingAudio.play();
 
-                if (playAttempt && typeof playAttempt.catch === 'function') {
-                    playAttempt.catch(function () {
-                        hasPlayed = false;
+                if (playAttempt && typeof playAttempt.then === 'function') {
+                    playAttempt.then(function () {
+                        hasStarted = true;
+                    }).catch(function () {
+                        hasStarted = false;
                     });
                 }
             };
 
-            const playOnceAfterInteraction = function () {
-                playOpeningAudio();
-                window.removeEventListener('click', playOnceAfterInteraction);
-                window.removeEventListener('touchstart', playOnceAfterInteraction);
-                window.removeEventListener('keydown', playOnceAfterInteraction);
-            };
+            tryPlayOpeningAudio();
 
-            playOpeningAudio();
-
-            window.addEventListener('click', playOnceAfterInteraction, { once: true });
-            window.addEventListener('touchstart', playOnceAfterInteraction, { once: true });
-            window.addEventListener('keydown', playOnceAfterInteraction, { once: true });
+            window.addEventListener('load', tryPlayOpeningAudio);
+            window.addEventListener('pageshow', tryPlayOpeningAudio);
+            document.addEventListener('visibilitychange', function () {
+                if (document.visibilityState === 'visible') {
+                    tryPlayOpeningAudio();
+                }
+            });
         });
     </script>
 </body>

@@ -46,5 +46,10 @@ https://dreaming-theme.netlify.app/ysera/
 https://parakkatjewels.com/
 
 
+<<<<<<< HEAD
 
 on index.html page in section International Medicine Supplier in that section redesign given sc according make and cotry name also menstion you generate images and matching my theam of website and country name is Peru Ecuador Italy Guyana Papua New Guinea Afghanistan Singapore Thailand Armenia Peru Qatar Kuwait Luxembourg Iran Dubai
+=======
+>>>>>>> 624b809d004b9618162a90082e3f8392d819bda9
+
+
