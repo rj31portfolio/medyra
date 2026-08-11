@@ -1189,7 +1189,7 @@
                             <span class="global-route" style="top: 56%; left: 74%; --route-width: 102px; --route-rotate: 16deg; --route-duration: 4.2s; --route-delay: 0.9s;"></span>
                         </div>
 
-                        <div class="global-destination destination-peru pin-left">
+                        <!-- <div class="global-destination destination-peru pin-left">
                             <span class="pin-core"></span>
                             <span class="destination-label">Peru</span>
                         </div>
@@ -1244,7 +1244,7 @@
                         <div class="global-destination destination-papua pin-left">
                             <span class="pin-core"></span>
                             <span class="destination-label">Papua New Guinea</span>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
@@ -2895,13 +2895,34 @@
                 return;
             }
 
-            openingAudio.loop = false;
-
+            const unlockKey = 'openingBackgroundAudioUnlocked';
             let hasStarted = false;
 
-            const tryPlayOpeningAudio = function () {
+            openingAudio.loop = false;
+            openingAudio.autoplay = true;
+            openingAudio.preload = 'auto';
+            openingAudio.load();
+
+            const removeUnlockListeners = function () {
+                ['pointerdown', 'touchstart', 'keydown', 'click'].forEach(function (eventName) {
+                    document.removeEventListener(eventName, unlockAudioFromGesture, true);
+                });
+            };
+
+            const markUnlocked = function () {
+                try {
+                    sessionStorage.setItem(unlockKey, 'true');
+                } catch (error) {
+                }
+            };
+
+            const tryPlayOpeningAudio = function (forceRestart) {
                 if (hasStarted) {
                     return;
+                }
+
+                if (forceRestart) {
+                    openingAudio.currentTime = 0;
                 }
 
                 const playAttempt = openingAudio.play();
@@ -2909,21 +2930,44 @@
                 if (playAttempt && typeof playAttempt.then === 'function') {
                     playAttempt.then(function () {
                         hasStarted = true;
+                        markUnlocked();
+                        removeUnlockListeners();
                     }).catch(function () {
                         hasStarted = false;
                     });
                 }
             };
 
-            tryPlayOpeningAudio();
+            function unlockAudioFromGesture() {
+                tryPlayOpeningAudio(true);
+            }
 
-            window.addEventListener('load', tryPlayOpeningAudio);
-            window.addEventListener('pageshow', tryPlayOpeningAudio);
+            ['pointerdown', 'touchstart', 'keydown', 'click'].forEach(function (eventName) {
+                document.addEventListener(eventName, unlockAudioFromGesture, true);
+            });
+
+            tryPlayOpeningAudio(true);
+
+            window.addEventListener('load', function () {
+                tryPlayOpeningAudio(true);
+            });
+
+            window.addEventListener('pageshow', function () {
+                tryPlayOpeningAudio(true);
+            });
+
             document.addEventListener('visibilitychange', function () {
                 if (document.visibilityState === 'visible') {
-                    tryPlayOpeningAudio();
+                    tryPlayOpeningAudio(false);
                 }
             });
+
+            try {
+                if (sessionStorage.getItem(unlockKey) === 'true') {
+                    tryPlayOpeningAudio(true);
+                }
+            } catch (error) {
+            }
         });
     </script>
 </body>
