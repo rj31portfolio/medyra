@@ -219,7 +219,7 @@
             <div id="loading-icon"><img src="images/md-logo.png" alt="Medyra Logo"></div>
         </div>
     </div>
-    <!-- Preloader End -->
+    <!-- Preloader End -->   
 
     <!-- Header Start -->
     <header class="main-header">
@@ -481,7 +481,24 @@
     <!-- Main Custom js file -->
     <script src="js/function.js"></script>
     <script>
-        const placeholderImage = "images/oncology-product-placeholder.svg";
+        const imageRoot = "images/Oncology/";
+        const thumbnailRoot = "images/oncology-thumbs/";
+        const productImages = [
+            ["Carboplatin", "Carboplatin/Carboplatin.png"], ["Bleomycin", "Bleomycin/Bleomycin.png"], ["Cisplatin", "Cisplatin/Cisplatin.png"],
+            ["Cytarabine", "Cytaraine/Cytaraine.png"], ["Dacarbazine", "Dacarbazine/Dacarbazine.png"], ["Daunorubicin", "Dadunorubicin/Dadunorubicin.png"],
+            ["Docetaxel", "Docetaxel/Docetaxel.png"], ["Doxorubicin", "Doxorubicin/Doxorubicin.png"], ["Epirubicin", "Epirubicin/Epirubicin.png"],
+            ["Etoposide", "Etoposide/Etoposide.png"], ["Fluorouracil", "Fluorouracil/Fluorouracil.png"], ["Ifosfamide", "Ifosfamide/Ifosfamide.png"],
+            ["Leucovorin", "Leuccovorin/Leuccovorin.png"], ["Irinotecan", "Irinotecan/Irinotecan.png"], ["L-Asparaginase", "L-Asparaginase/L-Asparaginase.png"],
+            ["Paclitaxel", "Paclitaxel/Paclitaxel.png"], ["Pemetrexed", "Pemetrexed/Pemetrexed.png"], ["Methotrexate", "Methotrexate/Methotrexate.png"],
+            ["Oxaliplatin", "Oxaliplatin/Oxaliplatin.png"], ["Vinblastine", "Vinblastine/Vinblastine.png"], ["Vinorelbine", "Vinorelbine/Vinorelbine.png"],
+            ["Vincristine", "Vincristine/Vincristine.png"], ["Zoledronic", "Zoledronic/Zoledronic.png"], ["Bortezomib", "Bortezomib/Bortezomib.png"],
+            ["Gemcitabine", "Gemcitabine/Gemcitabine.png"], ["Abiraterone", "Abiraterone/Ab-Tyra 250.png"], ["Anastrozole", "Anastrazole/Astrazyra.png"],
+            ["Imatinib", "Imatinib/Imatinib.png"], ["Bicalutamide", "Bicalutamide/Calutyra.png"], ["Chlorambucil", "Chlorambucil/Chlorambucil.png"],
+            ["Gefitinib", "Gefitinib/Gefitinib.png"], ["Capecitabine", "Capecitabine/Capecitabine.png"], ["Melphalan", "Melphalan/Melphalan.png"],
+            ["Sorafenib", "Sorafenib/Sorafenib.png"], ["Tamoxifen", "Tamoxifen/Tamoxifen.png"], ["Regorafenib", "Regorafenib/1.png"],
+            ["Pazopanib", "Pazopanib/Pazopanib.png"], ["Lenalidomide", "Lenalidomide/Lenalidomide.png"], ["Aprepitant", "Aprepitant Kit/Apretyra.png"],
+            ["Temozolomide", "Temoxolomide/Temoxolomide.png"], ["Thalidomide", "Thalidomide/Thalidomide.png"], ["Hydroxyurea", "Hydroxyurea/Hydroxyurea.png"]
+        ];
 
         const injections = [
             "Carboplatin Injection 150 mg",
@@ -549,16 +566,46 @@
             "Hydroxyurea Capsule 500 mg"
         ];
 
+        function getProductImages(item) {
+            const primary = productImages.find(([key]) => item.toLowerCase().includes(key.toLowerCase()));
+            if (!primary) return [];
+            const images = [primary[1]];
+            const extraImages = {
+                Docetaxel: ["Docetaxel/Docetaxel 80.png"], Tamoxifen: ["Tamoxifen/Tamoxifen 02.png"],
+                Methotrexate: ["Methotrexate/Methotrexate 02.png"], Bleomycin: ["Bleomycin/50.png"],
+                Zoledronic: ["Zoledronic/02.png"], Regorafenib: ["Regorafenib/2.png", "Regorafenib/3.png", "Regorafenib/4.png"]
+            };
+            return images.concat(extraImages[primary[0]] || []);
+        }
+
+        function thumbnailPath(imagePath) {
+            return thumbnailRoot + imagePath.replace(/\.png$/i, ".jpg");
+        }
+
         function renderProducts(containerId, items) {
             const container = document.getElementById(containerId);
             container.innerHTML = items.map((item) => `
                 <div class="oncology-card">
                     <div class="oncology-card-visual">
-                        <img src="${placeholderImage}" alt="${item}">
+                        <img src="${encodeURI(getProductImages(item)[0] ? thumbnailPath(getProductImages(item)[0]) : "images/oncology-product-placeholder.svg")}" alt="${item}" loading="lazy" decoding="async">
                     </div>
                     <p>${item}</p>
+                    <a class="product-enquiry" href="contact.html?product=${encodeURIComponent(item)}">Product Enquiry</a>
                 </div>
             `).join("");
+            items.forEach((item, itemIndex) => {
+                const images = getProductImages(item);
+                if (images.length < 2) return;
+                const card = container.children[itemIndex];
+                const visual = card.querySelector(".oncology-card-visual");
+                const image = visual.querySelector("img");
+                let index = 0;
+                const dots = document.createElement("div"); dots.className = "image-dots";
+                const showImage = (nextIndex) => { index = nextIndex % images.length; image.style.opacity = "0"; window.setTimeout(() => { image.src = encodeURI(thumbnailPath(images[index])); image.style.opacity = "1"; dots.querySelectorAll("button").forEach((dot, dotIndex) => dot.classList.toggle("is-active", dotIndex === index)); }, 180); };
+                images.forEach((_, dotIndex) => { const dot = document.createElement("button"); dot.type = "button"; dot.className = "image-dot" + (dotIndex === 0 ? " is-active" : ""); dot.setAttribute("aria-label", "Show product image " + (dotIndex + 1)); dot.onclick = () => showImage(dotIndex); dots.appendChild(dot); });
+                visual.appendChild(dots);
+                if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) window.setInterval(() => showImage((index + 1) % images.length), 3500);
+            });
         }
         renderProducts("injections-grid", injections);
         renderProducts("tablets-grid", tablets);
@@ -566,8 +613,6 @@
 </body>
 
 </html>
-
-
 
 
 
