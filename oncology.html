@@ -143,6 +143,10 @@
         }
 
         .product-enquiry:hover { color: #ffffff; background: #0e9f88; border-color: #0e9f88; }
+        .image-control { position: absolute; top: 50%; z-index: 1; width: 30px; height: 30px; border: 0; border-radius: 50%; color: #ffffff; background: rgba(5, 43, 60, .72); transform: translateY(-50%); }
+        .image-control:hover, .image-control:focus { background: #0e9f88; }
+        .image-control.prev { left: 9px; }
+        .image-control.next { right: 9px; }
         .image-dots { position: absolute; right: 0; bottom: 9px; left: 0; display: flex; justify-content: center; gap: 5px; }
         .image-dot { width: 6px; height: 6px; padding: 0; border: 0; border-radius: 50%; background: #aac1c5; }
         .image-dot.is-active { width: 18px; border-radius: 4px; background: #0e9f88; }
@@ -482,7 +486,6 @@
     <script src="js/function.js"></script>
     <script>
         const imageRoot = "images/Oncology/";
-        const thumbnailRoot = "images/oncology-thumbs/";
         const productImages = [
             ["Carboplatin", "Carboplatin/Carboplatin.png"], ["Bleomycin", "Bleomycin/Bleomycin.png"], ["Cisplatin", "Cisplatin/Cisplatin.png"],
             ["Cytarabine", "Cytaraine/Cytaraine.png"], ["Dacarbazine", "Dacarbazine/Dacarbazine.png"], ["Daunorubicin", "Dadunorubicin/Dadunorubicin.png"],
@@ -501,69 +504,16 @@
         ];
 
         const injections = [
-            "Carboplatin Injection 150 mg",
-            "Carboplatin Injection 450 mg",
-            "Bleomycin Injection 15 Unit",
-            "Cisplatin Injection 50 mg",
-            "Cytarabine Injection BP 1 g",
-            "Cytarabine Injection BP 100 mg",
-            "Cytarabine Injection BP 500 mg",
-            "Dacarbazine Injection USP 200 mg",
-            "Daunorubicin Injection 20 mg",
-            "Docetaxel Injection 20 mg",
-            "Docetaxel Injection 80 mg",
-            "Docetaxel Injection 120 mg",
-            "Doxorubicin HCI Injection 50 mg",
-            "Epirubicin Hydrochloride Injection 50 mg",
-            "Etoposide Injection 100 mg",
-            "Fluorouracil Injection 500 mg",
-            "Ifosfamide for Injection 2g",
-            "Leucovorin Calcium Injection 50 mg",
-            "Irinotecan Hydrochloride Injection 100mg",
-            "L-Asparaginase for Injection 10000 IU",
-            "Paclitaxel Injection 300 mg",
-            "Pemetrexed Injection 500 mg",
-            "Methotrexate Injection 50 mg",
-            "Methotrexate Injection 500 mg",
-            "Oxaliplatin Injection USP 100 mg",
-            "Paclitaxel Injection 100 mg",
-            "Paclitaxel Injection 260 mg",
-            "Paclitaxel Injection 300 mg",
-            "Vinblastine Sulphate Injection 10mg",
-            "Vinorelbine Injection 50 mg",
-            "Vincristine Sulphate Injection 1mg",
-            "Zoledronic Acid Injection 4mg",
-            "Bortezomib Injection 2 mg",
-            "Gemcitabine Injection 1000 mg",
-            "Ifosfamide for Injection 1g",
-            "Carfilzomib for Injection 60mg"
+            "Bleomycin", "Bortezomib", "Carboplatin", "Cisplatin", "Cytarabine", "Dacarbazine", "Daunorubicin",
+            "Docetaxel", "Doxorubicin", "Epirubicin", "Etoposide", "Fluorouracil", "Gemcitabine", "Ifosfamide",
+            "Irinotecan", "L-Asparaginase", "Leucovorin", "Methotrexate", "Oxaliplatin", "Paclitaxel", "Pemetrexed",
+            "Vinblastine", "Vincristine", "Vinorelbine", "Zoledronic Acid"
         ];
 
         const tablets = [
-            "Abiraterone Tablet 250 mg Tablet",
-            "Abiraterone Tablet 500 mg Tablet",
-            "Anastrozole Tablet IP 1 mg",
-            "Imatinib Mesylate Tablets 400 mg",
-            "Bicalutamide Tablet 50 mg",
-            "Chlorambucil Tablets 2 mg",
-            "Gefitinib Tablet 250 mg",
-            "Capecitabine Tablet 500 mg",
-            "Melphalan Tablets 2 mg",
-            "Sorafenib Tablets 200 mg",
-            "Tamoxifen Tablets 20 mg",
-            "Methotrexate Tablets 2.5 mg",
-            "Regorafenib Tablet 40 mg",
-            "Pazopanib Hcl Tablets 400 mg",
-            "Lenalidomide Capsule 25 mg",
-            "Aprepitant Capsule 125/80 mg",
-            "Temozolomide Capsules 20 mg",
-            "Temozolomide Capsules 100 mg",
-            "Temozolomide Capsules 250 mg",
-            "Thalidomide Capsule USP 100mg",
-            "Hydroxyurea Capsule 500 mg",
-            "Lenalidomide Capsule 5 mg",
-            "Lenalidomide Capsule 10 mg",
-            "Hydroxyurea Capsule 500 mg"
+            "Abiraterone", "Anastrozole", "Aprepitant", "Bicalutamide", "Capecitabine", "Chlorambucil", "Gefitinib",
+            "Hydroxyurea", "Imatinib", "Lenalidomide", "Melphalan", "Pazopanib", "Regorafenib", "Sorafenib",
+            "Tamoxifen", "Temozolomide", "Thalidomide"
         ];
 
         function getProductImages(item) {
@@ -578,16 +528,12 @@
             return images.concat(extraImages[primary[0]] || []);
         }
 
-        function thumbnailPath(imagePath) {
-            return thumbnailRoot + imagePath.replace(/\.png$/i, ".jpg");
-        }
-
         function renderProducts(containerId, items) {
             const container = document.getElementById(containerId);
             container.innerHTML = items.map((item) => `
                 <div class="oncology-card">
                     <div class="oncology-card-visual">
-                        <img src="${encodeURI(getProductImages(item)[0] ? thumbnailPath(getProductImages(item)[0]) : "images/oncology-product-placeholder.svg")}" alt="${item}" loading="lazy" decoding="async">
+                        <img src="${encodeURI(getProductImages(item)[0] ? imageRoot + getProductImages(item)[0] : "images/oncology-product-placeholder.svg")}" alt="${item}" loading="lazy" decoding="async">
                     </div>
                     <p>${item}</p>
                     <a class="product-enquiry" href="contact.html?product=${encodeURIComponent(item)}">Product Enquiry</a>
@@ -601,10 +547,10 @@
                 const image = visual.querySelector("img");
                 let index = 0;
                 const dots = document.createElement("div"); dots.className = "image-dots";
-                const showImage = (nextIndex) => { index = nextIndex % images.length; image.style.opacity = "0"; window.setTimeout(() => { image.src = encodeURI(thumbnailPath(images[index])); image.style.opacity = "1"; dots.querySelectorAll("button").forEach((dot, dotIndex) => dot.classList.toggle("is-active", dotIndex === index)); }, 180); };
+                const showImage = (nextIndex) => { index = (nextIndex + images.length) % images.length; image.style.opacity = "0"; window.setTimeout(() => { image.src = encodeURI(imageRoot + images[index]); image.style.opacity = "1"; dots.querySelectorAll("button").forEach((dot, dotIndex) => dot.classList.toggle("is-active", dotIndex === index)); }, 180); };
+                ["prev", "next"].forEach((direction) => { const button = document.createElement("button"); button.type = "button"; button.className = "image-control " + direction; button.setAttribute("aria-label", direction === "prev" ? "Previous product image" : "Next product image"); button.innerHTML = direction === "prev" ? "&#10094;" : "&#10095;"; button.onclick = () => showImage(index + (direction === "prev" ? -1 : 1)); visual.appendChild(button); });
                 images.forEach((_, dotIndex) => { const dot = document.createElement("button"); dot.type = "button"; dot.className = "image-dot" + (dotIndex === 0 ? " is-active" : ""); dot.setAttribute("aria-label", "Show product image " + (dotIndex + 1)); dot.onclick = () => showImage(dotIndex); dots.appendChild(dot); });
                 visual.appendChild(dots);
-                if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) window.setInterval(() => showImage((index + 1) % images.length), 3500);
             });
         }
         renderProducts("injections-grid", injections);
@@ -613,6 +559,4 @@
 </body>
 
 </html>
-
-
 
