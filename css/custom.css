@@ -515,9 +515,15 @@ header.main-header{
 header.main-header .header-sticky{
     position: relative;
 	top: 0px;
-    border-bottom: 1px solid var(--dark-divider-color);
+    border: 1px solid rgba(1, 58, 89, 0.08);
+    border-radius: 22px;
 	z-index: 100;
-	background-color: #FFFFFF;
+	background:
+		linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(245, 251, 255, 0.94) 100%);
+	box-shadow: 0 18px 50px rgba(1, 58, 89, 0.12);
+	backdrop-filter: blur(18px);
+	-webkit-backdrop-filter: blur(18px);
+	transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 header.main-header .header-sticky.hide{
 	transform: translateY(-100%);
@@ -530,21 +536,24 @@ header.main-header .header-sticky.active{
     left: 15px;
     right: 15px;
     transform: translateY(0);
-    background: var(--primary-color);
-    border: 1px solid var(--dark-divider-color);
-    border-radius: 10px;
+    background: rgba(1, 58, 89, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 22px;
+    box-shadow: 0 18px 50px rgba(1, 23, 35, 0.28);
 }
 
 .navbar{
-	padding: 0px 0px;
+	padding: 14px 18px;
 	align-items: center;
+	gap: 20px;
 }
 
 .navbar-brand{
 	padding: 0;
 	margin: 0;
 	width: 210px;
-	height: 150px;
+	height: 112px;
+	flex-shrink: 0;
 }
 
 .navbar-brand img{
@@ -552,34 +561,55 @@ header.main-header .header-sticky.active{
 	width: 100%;
 	height: 100%;
 	object-fit: contain;
+	filter: drop-shadow(0 10px 18px rgba(17, 109, 173, 0.12));
 }
 
 .main-menu .nav-menu-wrapper{
 	flex: 1;
 	text-align: center;
-	margin: 0 1.042vw;
+	margin: 0 0.8vw;
 }
 
 .main-menu .nav-menu-wrapper > ul{
 	align-items: center;
 	display: inline-flex;
+	padding: 8px 10px;
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.72);
+	border: 1px solid rgba(17, 109, 173, 0.08);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 .main-menu ul li{
-	margin: 0 10px;
+	margin: 0 4px;
 	position: relative;
 }
 
 .main-menu ul li a{
+	position: relative;
 	font-size: 16px;
-	font-weight: 500;
+	font-weight: 600;
 	line-height: 1.2em;
-	padding: 12px 10px !important;
-	color: rgb(12, 11, 11);
+	padding: 13px 16px !important;
+	color: var(--primary-color);
 	background: transparent;
-	border-radius: 0px;
+	border-radius: 999px;
 	text-transform: capitalize;
-	transition: all 0.3s ease-in-out;
+	transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+}
+
+.main-menu ul li a::before{
+	content: "";
+	position: absolute;
+	left: 16px;
+	right: 16px;
+	bottom: 8px;
+	height: 2px;
+	border-radius: 999px;
+	background: linear-gradient(90deg, var(--accent-color) 0%, var(--accent-secondary-color) 100%);
+	transform: scaleX(0);
+	transform-origin: center;
+	transition: transform 0.3s ease;
 }
 
 .main-menu ul li.submenu > a:after{
@@ -592,7 +622,14 @@ header.main-header .header-sticky.active{
 
 .main-menu ul li a:hover,
 .main-menu ul li a:focus{
-	color: var(--accent-secondary-color);
+	color: var(--accent-color);
+	background: rgba(17, 109, 173, 0.08);
+	transform: translateY(-1px);
+}
+
+.main-menu ul li a:hover::before,
+.main-menu ul li a:focus::before{
+	transform: scaleX(1);
 }
 
 .main-menu ul ul{
@@ -604,11 +641,13 @@ header.main-header .header-sticky.active{
 	margin: 0;
 	list-style: none;
 	width: 235px;
-	border-radius: 10px;
+	border-radius: 18px;
 	position: absolute;
 	left: 0;
-	top: 100%;
-	background: linear-gradient(270deg, var(--accent-secondary-color) 0%, var(--accent-color) 100%);
+	top: calc(100% + 12px);
+	background: linear-gradient(180deg, rgba(1, 58, 89, 0.98) 0%, rgba(17, 109, 173, 0.98) 100%);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	box-shadow: 0 24px 40px rgba(1, 23, 35, 0.24);
 	transition: all 0.3s ease-in-out;
 	text-align: left;
 }
@@ -642,15 +681,19 @@ header.main-header .header-sticky.active{
 
 .main-menu ul ul li a{
 	color: var(--white-color);
-	padding: 8px 20px !important;
+	padding: 11px 20px !important;
 	transition: all 0.3s ease-in-out;
 }
 
 .main-menu ul ul li a:hover,
 .main-menu ul ul li a:focus{
-	color: var(--primary-color);
-	background-color: transparent;
-	padding: 8px 20px 8px 23px !important;
+	color: var(--white-color);
+	background-color: rgba(19, 224, 185, 0.14);
+	padding: 11px 20px !important;
+}
+
+.main-menu ul ul li a::before{
+	display: none;
 }
 
 .main-menu ul li.highlighted-menu{
@@ -665,6 +708,31 @@ header.main-header .header-sticky.active{
 .responsive-menu{
 	position: relative;
 	top: 0;
+}
+
+.header-btn .btn-default{
+	padding: 16px 56px 16px 24px;
+	box-shadow: 0 16px 28px rgba(17, 109, 173, 0.24);
+}
+
+header.main-header .header-sticky.active .main-menu .nav-menu-wrapper > ul{
+	background: rgba(255, 255, 255, 0.06);
+	border-color: rgba(255, 255, 255, 0.08);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+header.main-header .header-sticky.active .main-menu ul li a{
+	color: rgba(255, 255, 255, 0.88);
+}
+
+header.main-header .header-sticky.active .main-menu ul li a:hover,
+header.main-header .header-sticky.active .main-menu ul li a:focus{
+	color: var(--white-color);
+	background: rgba(255, 255, 255, 0.08);
+}
+
+header.main-header .header-sticky.active .navbar-brand img{
+	filter: brightness(0) invert(1);
 }
 
 .slicknav_btn{
@@ -5568,6 +5636,9 @@ header.main-header .header-sticky.active{
 	header.main-header .header-sticky{
 		width: 100%;
 		border-radius: 0;
+		border-left: none;
+		border-right: none;
+		box-shadow: 0 10px 28px rgba(1, 58, 89, 0.12);
 	}
 	
 	header.main-header .header-sticky.active{
@@ -5582,7 +5653,19 @@ header.main-header .header-sticky.active{
 	}
 
 	.navbar{
-		padding: 20px 0;
+		padding: 14px 0;
+		gap: 12px;
+	}
+
+	.navbar-brand{
+		width: 170px;
+		height: 86px;
+	}
+
+	.navbar-toggle{
+		padding: 10px 12px;
+		border-radius: 14px;
+		background: rgba(17, 109, 173, 0.08);
 	}
 
 	.responsive-menu,
