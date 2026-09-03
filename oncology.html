@@ -100,19 +100,23 @@
         }
 
         .oncology-card-visual {
-            padding: 8px;
-            border: 1px solid #ececec;
-            border-radius: 4px;
+            position: relative;
+            aspect-ratio: 3 / 2;
+            overflow: hidden;
+            border: 1px solid #dce8e8;
+            border-radius: 12px;
             background: #ffffff;
-            box-shadow: 0 2px 12px rgba(31, 41, 55, 0.12);
+            box-shadow: 0 8px 20px rgba(31, 41, 55, 0.10);
         }
 
         .oncology-card-visual img {
             width: 100%;
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
             display: block;
             background: #ffffff;
+            transition: opacity .2s ease;
         }
 
         .oncology-card p {
@@ -122,6 +126,26 @@
             line-height: 1.45em;
             font-weight: 700;
         }
+
+        .product-enquiry {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            margin-top: 12px;
+            padding: 9px 12px;
+            color: #087c6c;
+            font-size: 13px;
+            font-weight: 700;
+            border: 1px solid #bde5dc;
+            border-radius: 7px;
+            background: #effaf7;
+        }
+
+        .product-enquiry:hover { color: #ffffff; background: #0e9f88; border-color: #0e9f88; }
+        .image-dots { position: absolute; right: 0; bottom: 9px; left: 0; display: flex; justify-content: center; gap: 5px; }
+        .image-dot { width: 6px; height: 6px; padding: 0; border: 0; border-radius: 50%; background: #aac1c5; }
+        .image-dot.is-active { width: 18px; border-radius: 4px; background: #0e9f88; }
 
         @media only screen and (max-width: 991px) {
             main {
@@ -542,7 +566,6 @@
 </body>
 
 </html>
-
 
 
 
