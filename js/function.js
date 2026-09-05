@@ -31,7 +31,8 @@
 	/* Slick Menu JS */
 	$('#menu').slicknav({
 		label : '',
-		prependTo : '.responsive-menu'
+		prependTo : '.responsive-menu',
+		allowParentLinks : true
 	});
 
 	if($("a[href='#top']").length){
